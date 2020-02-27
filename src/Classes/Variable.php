@@ -20,6 +20,7 @@
 
 namespace Quorrax\Classes;
 
+use Exception;
 use Quorrax\Interfaces\Variable as VariableInterface;
 
 /**
@@ -27,4 +28,37 @@ use Quorrax\Interfaces\Variable as VariableInterface;
  */
 class Variable implements VariableInterface
 {
+    /**
+     * @var mixed
+     */
+    private $value;
+
+    /**
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getValue()
+    {
+        if (is_null($this->value)) {
+            throw new Exception(); // FIX: Provide a message.
+        } else {
+            return $this->value;
+        }
+    }
+
+    /**
+     * @param mixed $value
+     *
+     * @return $this
+     * @throws \Exception
+     */
+    public function setValue($value)
+    {
+        if (is_null($value)) {
+            throw new Exception(); // FIX: Provide a message.
+        } else {
+            $this->value = $value;
+        }
+        return $this;
+    }
 }

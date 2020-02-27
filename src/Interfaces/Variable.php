@@ -25,4 +25,15 @@ namespace Quorrax\Interfaces;
  */
 interface Variable
 {
+    /**
+     * @return mixed
+     */
+    public function getValue();
+
+    /**
+     * @param mixed $value
+     *
+     * @return void
+     */
+    public function setValue($value);
 }
