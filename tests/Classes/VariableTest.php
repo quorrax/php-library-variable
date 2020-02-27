@@ -2,9 +2,10 @@
 
 namespace Quorrax\Tests\Classes;
 
-use Exception;
+use InvalidArgumentException;
 use PHPUnit_Framework_TestCase;
 use Quorrax\Classes\Variable;
+use UnexpectedValueException;
 
 /**
  * @package Quorrax\Tests\Classes
@@ -42,8 +43,8 @@ class VariableTest extends PHPUnit_Framework_TestCase
         try {
             $variable = new Variable();
             $variable->getValue();
-        } catch (Exception $exception) { // IMPROVE: Use a proper exception.
-            $this->assertSame("", $exception->getMessage());
+        } catch (UnexpectedValueException $exception) { // IMPROVE: Use a proper exception.
+            $this->assertSame("The property {\$value} is not defined.", $exception->getMessage());
             $this->assertSame(0, $exception->getCode());
         }
     }
@@ -74,8 +75,8 @@ class VariableTest extends PHPUnit_Framework_TestCase
         try {
             $variable = new Variable();
             $variable->setValue($givenValue);
-        } catch (Exception $exception) { // IMPROVE: Use a proper exception.
-            $this->assertSame("", $exception->getMessage());
+        } catch (InvalidArgumentException $exception) {
+            $this->assertSame("The given argument for the {\$value} parameter is not valid.", $exception->getMessage());
             $this->assertSame(0, $exception->getCode());
         }
     }

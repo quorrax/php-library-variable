@@ -20,8 +20,9 @@
 
 namespace Quorrax\Classes;
 
-use Exception;
+use InvalidArgumentException;
 use Quorrax\Interfaces\Variable as VariableInterface;
+use UnexpectedValueException;
 
 /**
  * @package Quorrax\Classes
@@ -35,12 +36,12 @@ class Variable implements VariableInterface
 
     /**
      * @return mixed
-     * @throws \Exception
+     * @throws \UnexpectedValueException
      */
     public function getValue()
     {
         if (is_null($this->value)) {
-            throw new Exception(); // FIX: Provide a message.
+            throw new UnexpectedValueException("The property {\$value} is not defined.");
         } else {
             return $this->value;
         }
@@ -50,12 +51,12 @@ class Variable implements VariableInterface
      * @param mixed $value
      *
      * @return $this
-     * @throws \Exception
+     * @throws \InvalidArgumentException
      */
     public function setValue($value)
     {
         if (is_null($value)) {
-            throw new Exception(); // FIX: Provide a message.
+            throw new InvalidArgumentException("The given argument for the {\$value} parameter is not valid.");
         } else {
             $this->value = $value;
         }
