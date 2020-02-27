@@ -1,0 +1,3 @@
+# Git files.
+.gitattributes text eol=lf
+.gitignore text eol=lf
