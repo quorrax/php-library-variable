@@ -5,3 +5,6 @@
 # JSON files.
 *.json text eol=lf
 *.lock text eol=lf
+
+# PHP files.
+*.php text eol=lf
