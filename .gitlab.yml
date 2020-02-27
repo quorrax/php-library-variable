@@ -1,24 +1,11 @@
 image: registry.gitlab.com/ilyabakhlin/test-image:5.6
 
-services:
-    - docker:stable-dind
-
-variables:
-    DOCKER_TLS_CERTDIR: "/certs"
-
 stages:
     - test
 
-cache:
-    paths:
-        - ${CI_PROJECT_DIR}/build
-
-test:
+PHP 5.6:
     before_script:
         - composer install
     script:
-        - ./vendor/phpunit \
-            --bootstrap ./vendor/autoload.php \
-            --colors=always \
-            --configuration ./phpunit.xml
+        - ./vendor/phpunit --bootstrap ./vendor/autoload.php --colors=always --configuration ./phpunit.xml
     stage: test
