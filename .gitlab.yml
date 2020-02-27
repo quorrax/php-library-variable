@@ -6,6 +6,7 @@ stages:
 PHP 5.6:
     before_script:
         - composer install
+        - chmod 755 -v ./vendor/phpunit
     script:
         - ./vendor/phpunit --bootstrap ./vendor/autoload.php --colors=always --configuration ./phpunit.xml
     stage: test
