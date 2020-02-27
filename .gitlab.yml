@@ -7,5 +7,5 @@ PHP 5.6:
     before_script:
         - composer install
     script:
-        - ./vendor/bin/phpunit --bootstrap ./vendor/autoload.php --colors=always --configuration ./phpunit.xml
+        - ./vendor/bin/phpunit --configuration ./phpunit.xml
     stage: test
