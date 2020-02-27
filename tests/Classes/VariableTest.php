@@ -2,10 +2,8 @@
 
 namespace Quorrax\Tests\Classes;
 
-use InvalidArgumentException;
 use PHPUnit_Framework_TestCase;
 use Quorrax\Classes\Variable;
-use UnexpectedValueException;
 
 /**
  * @package Quorrax\Tests\Classes
@@ -36,17 +34,16 @@ class VariableTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @expectedException \UnexpectedValueException
+     * @expectedExceptionCode 0
+     * @expectedExceptionMessage The property {$value} is not defined.
+     *
      * @return void
      */
     public function testMethodGetValueException()
     {
-        try {
-            $variable = new Variable();
-            $variable->getValue();
-        } catch (UnexpectedValueException $exception) { // IMPROVE: Use a proper exception.
-            $this->assertSame("The property {\$value} is not defined.", $exception->getMessage());
-            $this->assertSame(0, $exception->getCode());
-        }
+        $variable = new Variable();
+        $variable->getValue();
     }
 
     /**
@@ -66,19 +63,18 @@ class VariableTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodSetValueException()
      *
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionCode 0
+     * @expectedExceptionMessage The given argument for the {$value} parameter is not valid.
+     *
      * @param null $givenValue
      *
      * @return void
      */
     public function testMethodSetValueException($givenValue)
     {
-        try {
-            $variable = new Variable();
-            $variable->setValue($givenValue);
-        } catch (InvalidArgumentException $exception) {
-            $this->assertSame("The given argument for the {\$value} parameter is not valid.", $exception->getMessage());
-            $this->assertSame(0, $exception->getCode());
-        }
+        $variable = new Variable();
+        $variable->setValue($givenValue);
     }
 
     /**
