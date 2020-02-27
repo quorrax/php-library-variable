@@ -80,4 +80,12 @@ class VariableTest extends PHPUnit_Framework_TestCase
             $this->assertSame(0, $exception->getCode());
         }
     }
+
+    /**
+     * @return void
+     */
+    public function testPropertyValue()
+    {
+        $this->assertClassHasAttribute("value", Variable::class);
+    }
 }
