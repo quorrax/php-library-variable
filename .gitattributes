@@ -1,3 +1,7 @@
 # Git files.
 .gitattributes text eol=lf
 .gitignore text eol=lf
+
+# JSON files.
+*.json text eol=lf
+*.lock text eol=lf

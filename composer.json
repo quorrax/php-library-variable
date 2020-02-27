@@ -1,0 +1,25 @@
+{
+    "authors": [
+        {
+            "name": "Ilya Bakhlin",
+            "email": "ilya.bakhlin@quorrax.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Quorrax\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Quorrax\\Tests\\": "tests/"
+        }
+    },
+    "description": "An object-oriented solution for handling variables in PHP.",
+    "license": "GPL-3.0-or-later",
+    "minimum-stability": "stable",
+    "name": "quorrax/variable",
+    "require": {
+        "php": "^5.6"
+    }
+}

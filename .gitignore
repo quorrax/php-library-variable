@@ -1,2 +1,6 @@
 # Ignoring directories.
 /.idea/
+/vendor/
+
+# Ignoring files.
+/composer.phar
