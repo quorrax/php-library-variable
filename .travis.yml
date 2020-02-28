@@ -12,7 +12,7 @@ before_install:
     - composer diagnose
 
 install:
-    - composer install
+    - composer install --no-progress
 
 before_script:
     - composer check
