@@ -1,11 +1,29 @@
 image: registry.gitlab.com/ilyabakhlin/test-image:5.6
 
+cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+        - vendor/
+
 stages:
+    - install
+    - check
     - test
 
-PHP 5.6:
+Composer:
     before_script:
-        - composer install --no-progress
+        - composer diagnose
+    script:
+        - composer install
+    stage:
+        - install
+
+PHP Mess Detector:
+    script:
+        - composer check
+    stage: check
+
+PHP 5.6:
     script:
         - composer test
     stage: test

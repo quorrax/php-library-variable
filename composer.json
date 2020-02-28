@@ -16,6 +16,7 @@
         }
     },
     "bin": [
+        "bin/phpmd",
         "bin/phpunit"
     ],
     "description": "An object-oriented solution for handling variables in PHP.",
@@ -26,9 +27,11 @@
         "php": "^5.6"
     },
     "require-dev": {
+        "phpmd/phpmd": "^2.8",
         "phpunit/phpunit": "^5.7"
     },
     "scripts": {
+        "check": "phpmd ./src text ./ruleset.xml",
         "test": "phpunit -c ./phpunit.xml"
     },
     "type": "library"
