@@ -22,6 +22,30 @@ class VariableTest
     /**
      * @return array
      */
+    public function testMethodIsBooleanFalse() // IMPROVE: Add more values.
+    {
+        return [
+            [
+                "givenValue" => "",
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodIsBooleanTrue() // IMPROVE: Add more values.
+    {
+        return [
+            [
+                "givenValue" => false,
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
     public function testMethodSetValue() // IMPROVE: Add more values.
     {
         return [

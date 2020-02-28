@@ -4,6 +4,7 @@ namespace Quorrax\Tests\Classes;
 
 use PHPUnit_Framework_TestCase;
 use Quorrax\Classes\Variable;
+use Quorrax\Interfaces\Variable as VariableInterface;
 
 /**
  * @package Quorrax\Tests\Classes
@@ -15,7 +16,7 @@ class VariableTest extends PHPUnit_Framework_TestCase
      */
     public function testImplementationVariable()
     {
-        $this->assertInstanceOf(\Quorrax\Interfaces\Variable::class, new Variable());
+        $this->assertInstanceOf(VariableInterface::class, new Variable());
     }
 
     /**
@@ -44,6 +45,50 @@ class VariableTest extends PHPUnit_Framework_TestCase
     {
         $variable = new Variable();
         $variable->getValue();
+    }
+
+    /**
+     * @expectedException \UnexpectedValueException
+     * @expectedExceptionMessage The property {$value} is not defined.
+     *
+     * @return void
+     */
+    public function testMethodIsBooleanException()
+    {
+        $variable = new Variable();
+        $variable->isBoolean();
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsBooleanFalse()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsBooleanFalse($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isBoolean = $variable->isBoolean();
+        $this->assertInstanceOf(VariableInterface::class, $isBoolean);
+        $this->assertFalse($isBoolean->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsBooleanTrue()
+     *
+     * @param bool $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsBooleanTrue($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isBoolean = $variable->isBoolean();
+        $this->assertInstanceOf(VariableInterface::class, $isBoolean);
+        $this->assertTrue($isBoolean->getValue());
     }
 
     /**

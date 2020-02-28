@@ -31,6 +31,11 @@ interface Variable
     public function getValue();
 
     /**
+     * @return \Quorrax\Interfaces\Variable
+     */
+    public function isBoolean();
+
+    /**
      * @param mixed $value
      *
      * @return void

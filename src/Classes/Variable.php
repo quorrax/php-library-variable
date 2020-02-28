@@ -48,6 +48,21 @@ class Variable implements VariableInterface
     }
 
     /**
+     * @return \Quorrax\Interfaces\Variable
+     * @throws \UnexpectedValueException
+     */
+    public function isBoolean()
+    {
+        $result = new Variable();
+        if (is_bool($this->getValue())) {
+            $result->setValue(true);
+        } else {
+            $result->setValue(false);
+        }
+        return $result;
+    }
+
+    /**
      * @param mixed $value
      *
      * @return $this
