@@ -9,8 +9,7 @@ php:
     - 7.4
 
 before_install:
-    - which composer
-    - composer self-update
+    - curl -s https://getcomposer.org/installer | php -- --install-dir=/home/travis/.phpenv/shims --filename=composer
     - composer diagnose
 
 install:
