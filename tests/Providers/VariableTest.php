@@ -10,13 +10,45 @@ class VariableTest
     /**
      * @return array
      */
-    public function testMethodGetValue() // IMPROVE: Add more values.
+    private function getValuesBoolean()
     {
         return [
             [
-                "givenValue" => false,
+                false,
+            ],
+            [
+                true,
             ],
         ];
+    }
+
+    private function getValuesInteger() // IMPROVE: Add more values.
+    {
+        return [
+            [
+                0,
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    private function getValuesString() // IMPROVE: Add more values.
+    {
+        return [
+            [
+                "",
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodGetValue() // IMPROVE: Add more values.
+    {
+        return $this->testMethodSetValue();
     }
 
     /**
@@ -24,23 +56,18 @@ class VariableTest
      */
     public function testMethodIsBooleanFalse() // IMPROVE: Add more values.
     {
-        return [
-            [
-                "givenValue" => "",
-            ],
-        ];
+        return array_merge(
+            $this->getValuesInteger(),
+            $this->getValuesString()
+        );
     }
 
     /**
      * @return array
      */
-    public function testMethodIsBooleanTrue() // IMPROVE: Add more values.
+    public function testMethodIsBooleanTrue()
     {
-        return [
-            [
-                "givenValue" => false,
-            ],
-        ];
+        return $this->getValuesBoolean();
     }
 
     /**
@@ -48,11 +75,11 @@ class VariableTest
      */
     public function testMethodSetValue() // IMPROVE: Add more values.
     {
-        return [
-            [
-                "givenValue" => false,
-            ],
-        ];
+        return array_merge(
+            $this->getValuesBoolean(),
+            $this->getValuesInteger(),
+            $this->getValuesString()
+        );
     }
 
     /**
