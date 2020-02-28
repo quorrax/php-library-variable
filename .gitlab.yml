@@ -15,8 +15,7 @@ Composer:
         - composer diagnose
     script:
         - composer install
-    stage:
-        - install
+    stage: install
 
 PHP Mess Detector:
     script:
