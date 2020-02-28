@@ -7,5 +7,5 @@ PHP 5.6:
     before_script:
         - composer install
     script:
-        - ./vendor/bin/phpunit --configuration ./phpunit.xml
+        - composer test
     stage: test
