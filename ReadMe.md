@@ -1,3 +1,9 @@
+# Continuous Integration #
+
+## Travis CI ##
+
+[![Build Status](https://travis-ci.org/quorrax/php-library-variable.svg?branch=pro)](https://travis-ci.org/quorrax/php-library-variable)
+
 # Copyright #
 
 Copyright © 2020 Quorrax, S. L.
