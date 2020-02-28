@@ -19,6 +19,11 @@ Composer:
         - composer update
     stage: install
 
+PHP Code Sniffer:
+    script:
+        - composer sniff
+    stage: check
+
 PHP Mess Detector:
     script:
         - composer check
