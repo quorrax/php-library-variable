@@ -1,0 +1,22 @@
+language: php
+
+php:
+    - 5.6
+    - 7.0
+    - 7.1
+    - 7.2
+    - 7.3
+    - 7.4
+
+before_install:
+    - composer diagnose
+
+install:
+    - composer install
+
+before_script:
+    - composer check
+    - composer sniff
+
+script:
+    - composer test
