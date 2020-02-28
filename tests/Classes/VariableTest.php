@@ -53,6 +53,50 @@ class VariableTest extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
+    public function testMethodIsArrayException()
+    {
+        $variable = new Variable();
+        $variable->isArray();
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsArrayFalse()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsArrayFalse($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isArray = $variable->isArray();
+        $this->assertInstanceOf(VariableInterface::class, $isArray);
+        $this->assertFalse($isArray->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsArrayTrue()
+     *
+     * @param array $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsArrayTrue($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isArray = $variable->isArray();
+        $this->assertInstanceOf(VariableInterface::class, $isArray);
+        $this->assertTrue($isArray->getValue());
+    }
+
+    /**
+     * @expectedException \UnexpectedValueException
+     * @expectedExceptionMessage The property {$value} is not defined.
+     *
+     * @return void
+     */
     public function testMethodIsBooleanException()
     {
         $variable = new Variable();

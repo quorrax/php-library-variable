@@ -10,6 +10,18 @@ class VariableTest
     /**
      * @return array
      */
+    private function getValuesArray() // IMPROVE: Add more values.
+    {
+        return [
+            [
+                [],
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
     private function getValuesBoolean()
     {
         return [
@@ -54,9 +66,30 @@ class VariableTest
     /**
      * @return array
      */
+    public function testMethodIsArrayFalse()
+    {
+        return array_merge(
+            $this->getValuesBoolean(),
+            $this->getValuesInteger(),
+            $this->getValuesString()
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodIsArrayTrue()
+    {
+        return $this->getValuesArray();
+    }
+
+    /**
+     * @return array
+     */
     public function testMethodIsBooleanFalse() // IMPROVE: Add more values.
     {
         return array_merge(
+            $this->getValuesArray(),
             $this->getValuesInteger(),
             $this->getValuesString()
         );
@@ -76,6 +109,7 @@ class VariableTest
     public function testMethodSetValue() // IMPROVE: Add more values.
     {
         return array_merge(
+            $this->getValuesArray(),
             $this->getValuesBoolean(),
             $this->getValuesInteger(),
             $this->getValuesString()

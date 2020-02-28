@@ -36,6 +36,11 @@ interface Variable
     public function isBoolean();
 
     /**
+     * @return \Quorrax\Interfaces\Variable
+     */
+    public function isArray();
+
+    /**
      * @param mixed $value
      *
      * @return void

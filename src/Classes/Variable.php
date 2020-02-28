@@ -35,6 +35,23 @@ class Variable implements VariableInterface
     private $value;
 
     /**
+     * @param callable $function
+     *
+     * @return \Quorrax\Interfaces\Variable
+     * @throws \UnexpectedValueException
+     */
+    private function is($function)
+    {
+        $result = new Variable();
+        if (call_user_func($function, $this->getValue())) {
+            $result->setValue(true);
+        } else {
+            $result->setValue(false);
+        }
+        return $result;
+    }
+
+    /**
      * @return mixed
      * @throws \UnexpectedValueException
      */
@@ -51,15 +68,18 @@ class Variable implements VariableInterface
      * @return \Quorrax\Interfaces\Variable
      * @throws \UnexpectedValueException
      */
+    public function isArray()
+    {
+        return $this->is("is_array");
+    }
+
+    /**
+     * @return \Quorrax\Interfaces\Variable
+     * @throws \UnexpectedValueException
+     */
     public function isBoolean()
     {
-        $result = new Variable();
-        if (is_bool($this->getValue())) {
-            $result->setValue(true);
-        } else {
-            $result->setValue(false);
-        }
-        return $result;
+        return $this->is("is_bool");
     }
 
     /**
