@@ -14,7 +14,7 @@ Composer:
     before_script:
         - composer diagnose
     script:
-        - composer install
+        - composer install --no-progress
     stage: install
 
 PHP Mess Detector:
