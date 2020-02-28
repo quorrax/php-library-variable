@@ -9,6 +9,7 @@ php:
     - 7.4
 
 before_install:
+    - which composer
     - composer self-update
     - composer diagnose
 
