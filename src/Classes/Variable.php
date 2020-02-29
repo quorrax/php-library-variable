@@ -83,6 +83,23 @@ class Variable implements VariableInterface
     }
 
     /**
+     * @see https://bugs.php.net/bug.php?id=79320
+     *
+     * @return \Quorrax\Interfaces\Variable
+     * @throws \UnexpectedValueException
+     */
+    public function isEmpty()
+    {
+        $result = new Variable();
+        if (empty($this->getValue())) {
+            $result->setValue(true);
+        } else {
+            $result->setValue(false);
+        }
+        return $result;
+    }
+
+    /**
      * @return \Quorrax\Interfaces\Variable
      * @throws \UnexpectedValueException
      */

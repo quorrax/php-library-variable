@@ -38,6 +38,11 @@ interface Variable
     /**
      * @return \Quorrax\Interfaces\Variable
      */
+    public function isEmpty();
+
+    /**
+     * @return \Quorrax\Interfaces\Variable
+     */
     public function isBoolean();
 
     /**

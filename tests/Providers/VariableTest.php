@@ -10,7 +10,18 @@ class VariableTest
     /**
      * @return array
      */
-    private function getValuesArray() // IMPROVE: Add more values.
+    private function getValuesArray()
+    {
+        return array_merge(
+            $this->getValuesArrayEmpty(),
+            $this->getValuesArrayEmptyNot()
+        );
+    }
+
+    /**
+     * @return array
+     */
+    private function getValuesArrayEmpty()
     {
         return [
             [
@@ -22,12 +33,41 @@ class VariableTest
     /**
      * @return array
      */
+    private function getValuesArrayEmptyNot()
+    {
+        return [
+            [
+                [null],
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
     private function getValuesBoolean()
+    {
+        return array_merge(
+            $this->getValuesBooleanEmpty(),
+            $this->getValuesBooleanEmptyNot()
+        );
+    }
+
+    /**
+     * @return array
+     */
+    private function getValuesBooleanEmpty()
     {
         return [
             [
                 false,
             ],
+        ];
+    }
+
+    private function getValuesBooleanEmptyNot()
+    {
+        return [
             [
                 true,
             ],
@@ -37,7 +77,18 @@ class VariableTest
     /**
      * @return array
      */
-    private function getValuesFloat() // IMPROVE: Add more values.
+    private function getValuesFloat()
+    {
+        return array_merge(
+            $this->getValuesFloatEmpty(),
+            $this->getValuesFloatEmptyNot()
+        );
+    }
+
+    /**
+     * @return array
+     */
+    private function getValuesFloatEmpty()
     {
         return [
             [
@@ -49,7 +100,30 @@ class VariableTest
     /**
      * @return array
      */
-    private function getValuesInteger() // IMPROVE: Add more values.
+    private function getValuesFloatEmptyNot()
+    {
+        return [
+            [
+                0.1,
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    private function getValuesInteger()
+    {
+        return array_merge(
+            $this->getValuesIntegerEmpty(),
+            $this->getValuesIntegerEmptyNot()
+        );
+    }
+
+    /**
+     * @return array
+     */
+    private function getValuesIntegerEmpty()
     {
         return [
             [
@@ -61,11 +135,11 @@ class VariableTest
     /**
      * @return array
      */
-    private function getValuesString() // IMPROVE: Add more values.
+    private function getValuesIntegerEmptyNot()
     {
         return [
             [
-                "",
+                1,
             ],
         ];
     }
@@ -73,7 +147,45 @@ class VariableTest
     /**
      * @return array
      */
-    public function testMethodGetValue() // IMPROVE: Add more values.
+    private function getValuesString()
+    {
+        return array_merge(
+            $this->getValuesStringEmpty(),
+            $this->getValuesStringEmptyNot()
+        );
+    }
+
+    /**
+     * @return array
+     */
+    private function getValuesStringEmpty()
+    {
+        return [
+            [
+                "",
+            ],
+            [
+                "0",
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    private function getValuesStringEmptyNot()
+    {
+        return [
+            [
+                "string",
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodGetValue()
     {
         return $this->testMethodSetValue();
     }
@@ -102,7 +214,7 @@ class VariableTest
     /**
      * @return array
      */
-    public function testMethodIsBooleanFalse() // IMPROVE: Add more values.
+    public function testMethodIsBooleanFalse()
     {
         return array_merge(
             $this->getValuesArray(),
@@ -118,6 +230,34 @@ class VariableTest
     public function testMethodIsBooleanTrue()
     {
         return $this->getValuesBoolean();
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodIsEmptyFalse()
+    {
+        return array_merge(
+            $this->getValuesArrayEmptyNot(),
+            $this->getValuesBooleanEmptyNot(),
+            $this->getValuesFloatEmptyNot(),
+            $this->getValuesIntegerEmptyNot(),
+            $this->getValuesStringEmptyNot()
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodIsEmptyTrue()
+    {
+        return array_merge(
+            $this->getValuesArrayEmpty(),
+            $this->getValuesBooleanEmpty(),
+            $this->getValuesFloatEmpty(),
+            $this->getValuesIntegerEmpty(),
+            $this->getValuesStringEmpty()
+        );
     }
 
     /**
@@ -186,7 +326,7 @@ class VariableTest
     /**
      * @return array
      */
-    public function testMethodSetValue() // IMPROVE: Add more values.
+    public function testMethodSetValue()
     {
         return array_merge(
             $this->getValuesArray(),

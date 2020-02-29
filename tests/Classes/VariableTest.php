@@ -141,6 +141,50 @@ class VariableTest extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
+    public function testMethodIsEmptyException()
+    {
+        $variable = new Variable();
+        $variable->isEmpty();
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsEmptyFalse()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsEmptyFalse($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isEmpty = $variable->isEmpty();
+        $this->assertInstanceOf(VariableInterface::class, $isEmpty);
+        $this->assertFalse($isEmpty->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsEmptyTrue()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsEmptyTrue($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isEmpty = $variable->isEmpty();
+        $this->assertInstanceOf(VariableInterface::class, $isEmpty);
+        $this->assertTrue($isEmpty->getValue());
+    }
+
+    /**
+     * @expectedException \UnexpectedValueException
+     * @expectedExceptionMessage The property {$value} is not defined.
+     *
+     * @return void
+     */
     public function testMethodIsFloatException()
     {
         $variable = new Variable();
