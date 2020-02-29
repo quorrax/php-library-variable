@@ -58,17 +58,22 @@ interface Variable
     /**
      * @return \Quorrax\Interfaces\Variable
      */
+    public function isNumeric();
+
+    /**
+     * @return \Quorrax\Interfaces\Variable
+     */
     public function isObject();
 
     /**
      * @return \Quorrax\Interfaces\Variable
      */
-    public function isScalar();
+    public function isResource();
 
     /**
      * @return \Quorrax\Interfaces\Variable
      */
-    public function isResource();
+    public function isScalar();
 
     /**
      * @return \Quorrax\Interfaces\Variable

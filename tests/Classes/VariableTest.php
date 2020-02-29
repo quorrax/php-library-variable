@@ -269,6 +269,50 @@ class VariableTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \UnexpectedValueException
+     * @expectedExceptionMessage The property {$value} is not defined.
+     *
+     * @return void
+     */
+    public function testMethodIsNumericException()
+    {
+        $variable = new Variable();
+        $variable->isNumeric();
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsNumericFalse()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsNumericFalse($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isNumeric = $variable->isNumeric();
+        $this->assertInstanceOf(VariableInterface::class, $isNumeric);
+        $this->assertFalse($isNumeric->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsNumericTrue()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsNumericTrue($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isNumeric = $variable->isNumeric();
+        $this->assertInstanceOf(VariableInterface::class, $isNumeric);
+        $this->assertTrue($isNumeric->getValue());
+    }
+
+    /**
+     * @expectedException \UnexpectedValueException
      * @expectedExceptionCode 0
      * @expectedExceptionMessage The property {$value} is not defined.
      *

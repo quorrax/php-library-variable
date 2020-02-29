@@ -177,7 +177,9 @@ class VariableTest
     {
         return array_merge(
             $this->getValuesStringEmpty(),
-            $this->getValuesStringEmptyNot()
+            $this->getValuesStringEmptyNot(),
+            $this->getValuesStringNumeric(),
+            $this->getValuesStringNumericNot()
         );
     }
 
@@ -204,6 +206,30 @@ class VariableTest
         return [
             [
                 "string",
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    private function getValuesStringNumeric()
+    {
+        return [
+            [
+                "0",
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    private function getValuesStringNumericNot()
+    {
+        return [
+            [
+                "",
             ],
         ];
     }
@@ -336,6 +362,28 @@ class VariableTest
     public function testMethodIsIntegerTrue()
     {
         return $this->getValuesInteger();
+    }
+
+    public function testMethodIsNumericFalse()
+    {
+        return array_merge(
+            $this->getValuesArray(),
+            $this->getValuesBoolean(),
+            $this->getValuesObject(),
+            $this->getValuesResource()
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodIsNumericTrue()
+    {
+        return array_merge(
+            $this->getValuesInteger(),
+            $this->getValuesFloat(),
+            $this->getValuesStringNumeric()
+        );
     }
 
     /**

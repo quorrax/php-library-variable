@@ -117,11 +117,10 @@ class Variable implements VariableInterface
 
     /**
      * @return \Quorrax\Interfaces\Variable
-     * @throws \UnexpectedValueException
      */
-    public function isScalar()
+    public function isNumeric()
     {
-        return $this->is("is_scalar");
+        return $this->is("is_numeric");
     }
 
     /**
@@ -140,6 +139,15 @@ class Variable implements VariableInterface
     public function isResource()
     {
         return $this->is("is_resource");
+    }
+
+    /**
+     * @return \Quorrax\Interfaces\Variable
+     * @throws \UnexpectedValueException
+     */
+    public function isScalar()
+    {
+        return $this->is("is_scalar");
     }
 
     /**
