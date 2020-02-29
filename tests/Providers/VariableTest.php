@@ -165,6 +165,27 @@ class VariableTest
     /**
      * @return array
      */
+    public function testMethodIsStringFalse()
+    {
+        return array_merge(
+            $this->getValuesArray(),
+            $this->getValuesBoolean(),
+            $this->getValuesFloat(),
+            $this->getValuesInteger()
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodIsStringTrue()
+    {
+        return $this->getValuesString();
+    }
+
+    /**
+     * @return array
+     */
     public function testMethodSetValue() // IMPROVE: Add more values.
     {
         return array_merge(

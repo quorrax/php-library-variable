@@ -148,6 +148,38 @@ class VariableTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsFloatFalse()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsFloatFalse($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isFloat = $variable->isFloat();
+        $this->assertInstanceOf(VariableInterface::class, $isFloat);
+        $this->assertFalse($isFloat->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsFloatTrue()
+     *
+     * @param bool $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsFloatTrue($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isFloat = $variable->isFloat();
+        $this->assertInstanceOf(VariableInterface::class, $isFloat);
+        $this->assertTrue($isFloat->getValue());
+    }
+
+    /**
      * @expectedException \UnexpectedValueException
      * @expectedExceptionMessage The property {$value} is not defined.
      *
@@ -192,35 +224,47 @@ class VariableTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsFloatFalse()
+     * @expectedException \UnexpectedValueException
+     * @expectedExceptionMessage The property {$value} is not defined.
+     *
+     * @return void
+     */
+    public function testMethodIsStringException()
+    {
+        $variable = new Variable();
+        $variable->isString();
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsStringFalse()
      *
      * @param mixed $givenValue
      *
      * @return void
      */
-    public function testMethodIsFloatFalse($givenValue)
+    public function testMethodIsStringFalse($givenValue)
     {
         $variable = new Variable();
         $variable->setValue($givenValue);
-        $isFloat = $variable->isFloat();
-        $this->assertInstanceOf(VariableInterface::class, $isFloat);
-        $this->assertFalse($isFloat->getValue());
+        $isString = $variable->isString();
+        $this->assertInstanceOf(VariableInterface::class, $isString);
+        $this->assertFalse($isString->getValue());
     }
 
     /**
-     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsFloatTrue()
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsStringTrue()
      *
      * @param bool $givenValue
      *
      * @return void
      */
-    public function testMethodIsFloatTrue($givenValue)
+    public function testMethodIsStringTrue($givenValue)
     {
         $variable = new Variable();
         $variable->setValue($givenValue);
-        $isFloat = $variable->isFloat();
-        $this->assertInstanceOf(VariableInterface::class, $isFloat);
-        $this->assertTrue($isFloat->getValue());
+        $isString = $variable->isString();
+        $this->assertInstanceOf(VariableInterface::class, $isString);
+        $this->assertTrue($isString->getValue());
     }
 
     /**

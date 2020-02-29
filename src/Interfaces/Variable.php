@@ -51,6 +51,11 @@ interface Variable
     public function isInteger();
 
     /**
+     * @return \Quorrax\Interfaces\Variable
+     */
+    public function isString();
+
+    /**
      * @param mixed $value
      *
      * @return void
