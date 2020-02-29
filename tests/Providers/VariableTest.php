@@ -46,6 +46,9 @@ class VariableTest
         ];
     }
 
+    /**
+     * @return array
+     */
     private function getValuesInteger() // IMPROVE: Add more values.
     {
         return [
@@ -136,6 +139,27 @@ class VariableTest
     public function testMethodIsFloatTrue()
     {
         return $this->getValuesFloat();
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodIsIntegerFalse()
+    {
+        return array_merge(
+            $this->getValuesArray(),
+            $this->getValuesBoolean(),
+            $this->getValuesFloat(),
+            $this->getValuesString()
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodIsIntegerTrue()
+    {
+        return $this->getValuesInteger();
     }
 
     /**

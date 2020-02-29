@@ -92,6 +92,15 @@ class Variable implements VariableInterface
     }
 
     /**
+     * @return \Quorrax\Interfaces\Variable
+     * @throws \UnexpectedValueException
+     */
+    public function isInteger()
+    {
+        return $this->is("is_int");
+    }
+
+    /**
      * @param mixed $value
      *
      * @return $this

@@ -46,6 +46,11 @@ interface Variable
     public function isFloat();
 
     /**
+     * @return \Quorrax\Interfaces\Variable
+     */
+    public function isInteger();
+
+    /**
      * @param mixed $value
      *
      * @return void
