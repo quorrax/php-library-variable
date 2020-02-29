@@ -4,7 +4,7 @@
 
 ### Classes ###
 
-* Added the `is()` private method to the `Quorrax\Classes\Variable` class.
++ Added the `is()` private method to the `Quorrax\Classes\Variable` class.
 + Added the `isArray()` public method to the `Quorrax\Classes\Variable` class.
 + Added the `isBoolean()` public method to the `Quorrax\Classes\Variable` class.
 + Added the `isFloat()` public method to the `Quorrax\Classes\Variable` class.
