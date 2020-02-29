@@ -83,8 +83,6 @@ class Variable implements VariableInterface
     }
 
     /**
-     * @see https://bugs.php.net/bug.php?id=79320
-     *
      * @return \Quorrax\Interfaces\Variable
      * @throws \UnexpectedValueException
      */
@@ -115,6 +113,15 @@ class Variable implements VariableInterface
     public function isInteger()
     {
         return $this->is("is_int");
+    }
+
+    /**
+     * @return \Quorrax\Interfaces\Variable
+     * @throws \UnexpectedValueException
+     */
+    public function isObject()
+    {
+        return $this->is("is_object");
     }
 
     /**

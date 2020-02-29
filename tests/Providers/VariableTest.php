@@ -2,6 +2,8 @@
 
 namespace Quorrax\Tests\Providers;
 
+use stdClass;
+
 /**
  * @package Quorrax\Tests\Providers
  */
@@ -147,6 +149,18 @@ class VariableTest
     /**
      * @return array
      */
+    private function getValuesObject()
+    {
+        return [
+            [
+                new stdClass(),
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
     private function getValuesString()
     {
         return array_merge(
@@ -199,6 +213,7 @@ class VariableTest
             $this->getValuesBoolean(),
             $this->getValuesFloat(),
             $this->getValuesInteger(),
+            $this->getValuesObject(),
             $this->getValuesString()
         );
     }
@@ -220,6 +235,7 @@ class VariableTest
             $this->getValuesArray(),
             $this->getValuesFloat(),
             $this->getValuesInteger(),
+            $this->getValuesObject(),
             $this->getValuesString()
         );
     }
@@ -242,6 +258,7 @@ class VariableTest
             $this->getValuesBooleanEmptyNot(),
             $this->getValuesFloatEmptyNot(),
             $this->getValuesIntegerEmptyNot(),
+            $this->getValuesObject(),
             $this->getValuesStringEmptyNot()
         );
     }
@@ -269,6 +286,7 @@ class VariableTest
             $this->getValuesArray(),
             $this->getValuesBoolean(),
             $this->getValuesInteger(),
+            $this->getValuesObject(),
             $this->getValuesString()
         );
     }
@@ -290,6 +308,7 @@ class VariableTest
             $this->getValuesArray(),
             $this->getValuesBoolean(),
             $this->getValuesFloat(),
+            $this->getValuesObject(),
             $this->getValuesString()
         );
     }
@@ -305,13 +324,36 @@ class VariableTest
     /**
      * @return array
      */
+    public function testMethodIsObjectFalse()
+    {
+        return array_merge(
+            $this->getValuesArray(),
+            $this->getValuesBoolean(),
+            $this->getValuesFloat(),
+            $this->getValuesInteger(),
+            $this->getValuesString()
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodIsObjectTrue()
+    {
+        return $this->getValuesObject();
+    }
+
+    /**
+     * @return array
+     */
     public function testMethodIsStringFalse()
     {
         return array_merge(
             $this->getValuesArray(),
             $this->getValuesBoolean(),
             $this->getValuesFloat(),
-            $this->getValuesInteger()
+            $this->getValuesInteger(),
+            $this->getValuesObject()
         );
     }
 
@@ -333,6 +375,7 @@ class VariableTest
             $this->getValuesBoolean(),
             $this->getValuesFloat(),
             $this->getValuesInteger(),
+            $this->getValuesObject(),
             $this->getValuesString()
         );
     }

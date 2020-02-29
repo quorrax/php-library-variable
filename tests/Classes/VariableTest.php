@@ -269,6 +269,51 @@ class VariableTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \UnexpectedValueException
+     * @expectedExceptionCode 0
+     * @expectedExceptionMessage The property {$value} is not defined.
+     *
+     * @return void
+     */
+    public function testMethodIsObjectException()
+    {
+        $variable = new Variable();
+        $variable->isObject();
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsObjectFalse()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsObjectFalse($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isObject = $variable->isObject();
+        $this->assertInstanceOf(VariableInterface::class, $isObject);
+        $this->assertFalse($isObject->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsObjectTrue()
+     *
+     * @param object $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsObjectTrue($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isObject = $variable->isObject();
+        $this->assertInstanceOf(VariableInterface::class, $isObject);
+        $this->assertTrue($isObject->getValue());
+    }
+
+    /**
+     * @expectedException \UnexpectedValueException
      * @expectedExceptionMessage The property {$value} is not defined.
      *
      * @return void
