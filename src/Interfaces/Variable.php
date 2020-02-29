@@ -63,6 +63,11 @@ interface Variable
     /**
      * @return \Quorrax\Interfaces\Variable
      */
+    public function isResource();
+
+    /**
+     * @return \Quorrax\Interfaces\Variable
+     */
     public function isString();
 
     /**

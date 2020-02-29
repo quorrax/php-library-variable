@@ -314,6 +314,51 @@ class VariableTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \UnexpectedValueException
+     * @expectedExceptionCode 0
+     * @expectedExceptionMessage The property {$value} is not defined.
+     *
+     * @return void
+     */
+    public function testMethodIsResourceException()
+    {
+        $variable = new Variable();
+        $variable->isResource();
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsResourceFalse()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsResourceFalse($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isResource = $variable->isResource();
+        $this->assertInstanceOf(VariableInterface::class, $isResource);
+        $this->assertFalse($isResource->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsResourceTrue()
+     *
+     * @param resource $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsResourceTrue($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isResource = $variable->isResource();
+        $this->assertInstanceOf(VariableInterface::class, $isResource);
+        $this->assertTrue($isResource->getValue());
+    }
+
+    /**
+     * @expectedException \UnexpectedValueException
      * @expectedExceptionMessage The property {$value} is not defined.
      *
      * @return void

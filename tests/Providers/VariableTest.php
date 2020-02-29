@@ -161,6 +161,18 @@ class VariableTest
     /**
      * @return array
      */
+    private function getValuesResource()
+    {
+        return [
+            [
+                tmpfile(),
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
     private function getValuesString()
     {
         return array_merge(
@@ -214,6 +226,7 @@ class VariableTest
             $this->getValuesFloat(),
             $this->getValuesInteger(),
             $this->getValuesObject(),
+            $this->getValuesResource(),
             $this->getValuesString()
         );
     }
@@ -236,6 +249,7 @@ class VariableTest
             $this->getValuesFloat(),
             $this->getValuesInteger(),
             $this->getValuesObject(),
+            $this->getValuesResource(),
             $this->getValuesString()
         );
     }
@@ -259,6 +273,7 @@ class VariableTest
             $this->getValuesFloatEmptyNot(),
             $this->getValuesIntegerEmptyNot(),
             $this->getValuesObject(),
+            $this->getValuesResource(),
             $this->getValuesStringEmptyNot()
         );
     }
@@ -287,6 +302,7 @@ class VariableTest
             $this->getValuesBoolean(),
             $this->getValuesInteger(),
             $this->getValuesObject(),
+            $this->getValuesResource(),
             $this->getValuesString()
         );
     }
@@ -309,6 +325,7 @@ class VariableTest
             $this->getValuesBoolean(),
             $this->getValuesFloat(),
             $this->getValuesObject(),
+            $this->getValuesResource(),
             $this->getValuesString()
         );
     }
@@ -331,6 +348,7 @@ class VariableTest
             $this->getValuesBoolean(),
             $this->getValuesFloat(),
             $this->getValuesInteger(),
+            $this->getValuesResource(),
             $this->getValuesString()
         );
     }
@@ -346,6 +364,29 @@ class VariableTest
     /**
      * @return array
      */
+    public function testMethodIsResourceFalse()
+    {
+        return array_merge(
+            $this->getValuesArray(),
+            $this->getValuesBoolean(),
+            $this->getValuesFloat(),
+            $this->getValuesInteger(),
+            $this->getValuesObject(),
+            $this->getValuesString()
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodIsResourceTrue()
+    {
+        return $this->getValuesResource();
+    }
+
+    /**
+     * @return array
+     */
     public function testMethodIsStringFalse()
     {
         return array_merge(
@@ -353,7 +394,8 @@ class VariableTest
             $this->getValuesBoolean(),
             $this->getValuesFloat(),
             $this->getValuesInteger(),
-            $this->getValuesObject()
+            $this->getValuesObject(),
+            $this->getValuesResource()
         );
     }
 
@@ -376,6 +418,7 @@ class VariableTest
             $this->getValuesFloat(),
             $this->getValuesInteger(),
             $this->getValuesObject(),
+            $this->getValuesResource(),
             $this->getValuesString()
         );
     }
