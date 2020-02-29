@@ -136,6 +136,50 @@ class VariableTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @expectedException \UnexpectedValueException
+     * @expectedExceptionMessage The property {$value} is not defined.
+     *
+     * @return void
+     */
+    public function testMethodIsFloatException()
+    {
+        $variable = new Variable();
+        $variable->isFloat();
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsFloatFalse()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsFloatFalse($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isFloat = $variable->isFloat();
+        $this->assertInstanceOf(VariableInterface::class, $isFloat);
+        $this->assertFalse($isFloat->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsFloatTrue()
+     *
+     * @param bool $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsFloatTrue($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isFloat = $variable->isFloat();
+        $this->assertInstanceOf(VariableInterface::class, $isFloat);
+        $this->assertTrue($isFloat->getValue());
+    }
+
+    /**
      * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodSetValue()
      *
      * @param mixed $givenValue

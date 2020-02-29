@@ -33,12 +33,17 @@ interface Variable
     /**
      * @return \Quorrax\Interfaces\Variable
      */
+    public function isArray();
+
+    /**
+     * @return \Quorrax\Interfaces\Variable
+     */
     public function isBoolean();
 
     /**
      * @return \Quorrax\Interfaces\Variable
      */
-    public function isArray();
+    public function isFloat();
 
     /**
      * @param mixed $value

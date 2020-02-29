@@ -34,6 +34,18 @@ class VariableTest
         ];
     }
 
+    /**
+     * @return array
+     */
+    private function getValuesFloat() // IMPROVE: Add more values.
+    {
+        return [
+            [
+                0.0,
+            ],
+        ];
+    }
+
     private function getValuesInteger() // IMPROVE: Add more values.
     {
         return [
@@ -70,6 +82,7 @@ class VariableTest
     {
         return array_merge(
             $this->getValuesBoolean(),
+            $this->getValuesFloat(),
             $this->getValuesInteger(),
             $this->getValuesString()
         );
@@ -90,6 +103,7 @@ class VariableTest
     {
         return array_merge(
             $this->getValuesArray(),
+            $this->getValuesFloat(),
             $this->getValuesInteger(),
             $this->getValuesString()
         );
@@ -106,11 +120,33 @@ class VariableTest
     /**
      * @return array
      */
+    public function testMethodIsFloatFalse()
+    {
+        return array_merge(
+            $this->getValuesArray(),
+            $this->getValuesBoolean(),
+            $this->getValuesInteger(),
+            $this->getValuesString()
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodIsFloatTrue()
+    {
+        return $this->getValuesFloat();
+    }
+
+    /**
+     * @return array
+     */
     public function testMethodSetValue() // IMPROVE: Add more values.
     {
         return array_merge(
             $this->getValuesArray(),
             $this->getValuesBoolean(),
+            $this->getValuesFloat(),
             $this->getValuesInteger(),
             $this->getValuesString()
         );

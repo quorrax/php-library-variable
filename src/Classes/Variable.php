@@ -83,6 +83,15 @@ class Variable implements VariableInterface
     }
 
     /**
+     * @return \Quorrax\Interfaces\Variable
+     * @throws \UnexpectedValueException
+     */
+    public function isFloat()
+    {
+        return $this->is("is_float");
+    }
+
+    /**
      * @param mixed $value
      *
      * @return $this
