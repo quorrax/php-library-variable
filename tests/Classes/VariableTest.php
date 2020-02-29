@@ -359,6 +359,51 @@ class VariableTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \UnexpectedValueException
+     * @expectedExceptionCode 0
+     * @expectedExceptionMessage The property {$value} is not defined.
+     *
+     * @return void
+     */
+    public function testMethodIsScalarException()
+    {
+        $variable = new Variable();
+        $variable->isScalar();
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsScalarFalse()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsScalarFalse($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isScalar = $variable->isScalar();
+        $this->assertInstanceOf(VariableInterface::class, $isScalar);
+        $this->assertFalse($isScalar->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsScalarTrue()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsScalarTrue($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isScalar = $variable->isScalar();
+        $this->assertInstanceOf(VariableInterface::class, $isScalar);
+        $this->assertTrue($isScalar->getValue());
+    }
+
+    /**
+     * @expectedException \UnexpectedValueException
      * @expectedExceptionMessage The property {$value} is not defined.
      *
      * @return void

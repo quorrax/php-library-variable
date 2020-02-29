@@ -387,6 +387,31 @@ class VariableTest
     /**
      * @return array
      */
+    public function testMethodIsScalarFalse()
+    {
+        return array_merge(
+            $this->getValuesArray(),
+            $this->getValuesObject(),
+            $this->getValuesResource()
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodIsScalarTrue()
+    {
+        return array_merge(
+            $this->getValuesBoolean(),
+            $this->getValuesFloat(),
+            $this->getValuesInteger(),
+            $this->getValuesString()
+        );
+    }
+
+    /**
+     * @return array
+     */
     public function testMethodIsStringFalse()
     {
         return array_merge(
