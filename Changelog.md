@@ -1,3 +1,13 @@
+# 1.3.0 #
+
+## Added ##
+
+### Classes ###
++ Added the `getType()` public method to the `Quorrax\Classes\Variable` class.
+
+### Interfaces ###
++ Added the `getType()` public method to the `Quorrax\Interfaces\Variable` interface.
+
 # 1.2.0 #
 
 ## Added ##
