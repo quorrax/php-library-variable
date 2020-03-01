@@ -1,3 +1,9 @@
+after_success:
+    - composer diagnose
+
+before_script:
+    - composer diagnose
+
 cache:
     directories:
         - /home/travis/.phpenv/shim/composer
@@ -7,14 +13,12 @@ stages:
     - install
     - check
     - test
-    - coverage
 
 jobs:
     include:
         -   name: Install Composer
             script:
                 - curl -s https://getcomposer.org/installer | php -- --install-dir=/home/travis/.phpenv/shims --filename=composer
-                - composer diagnose
             stage: install
         -   name: Code Sniffer
             script:
@@ -25,21 +29,15 @@ jobs:
             script:
                 - composer check
                 - composer check-tests
-        -   name: Test Code
-            language: php
-            php:
-                - 5.6
-                - 7.0
-                - 7.1
-                - 7.2
-                - 7.3
-                - 7.4
-            before_script:
-                - composer diagnose
-            script:
-                - composer test
-            stage: test
-        -   name: Coverage
-            script:
-                - composer diagnose
-            stage: coverage
+
+language: php
+
+os: linux
+
+php:
+    - 5.6
+    - 7.0
+    - 7.1
+    - 7.2
+    - 7.3
+    - 7.4
