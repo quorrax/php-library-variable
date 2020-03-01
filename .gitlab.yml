@@ -22,11 +22,13 @@ Composer:
 PHP Code Sniffer:
     script:
         - composer sniff
+        - composer sniff-tests
     stage: check
 
 PHP Mess Detector:
     script:
         - composer check
+        - composer check-tests
     stage: check
 
 PHP 5.6:
