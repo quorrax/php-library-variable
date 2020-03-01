@@ -29,15 +29,3 @@ jobs:
                 - chmod +x ./cc-test-reporter
                 - composer diagnose
             stage: install
-
-install:
-    - composer install --no-progress
-
-script:
-    - composer test
-
-after_success:
-    - composer require --dev --no-progress php-coveralls/php-coveralls
-    - ./vendor/bin/phpunit -c ./phpunit.xml --coverage-clover ./clover.xml
-    - ./vendor/bin/php-coveralls -o ./coveralls.json -x ./clover.xml
-    - ./cc-test-reporter after-build -t clover --exit-code $TRAVIS_TEST_RESULT
