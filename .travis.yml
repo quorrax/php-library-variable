@@ -8,6 +8,20 @@ php:
     - 7.3
     - 7.4
 
+cache:
+    directories:
+        - ./vendor
+
+stages:
+    - install
+
+jobs:
+    include:
+        -   name: Composer
+            script:
+                - comoser install
+            stage: install
+
 before_install:
     - curl -s https://getcomposer.org/installer | php -- --install-dir=/home/travis/.phpenv/shims --filename=composer
     - composer diagnose
