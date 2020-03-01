@@ -88,7 +88,7 @@ interface Variable
     /**
      * @param mixed $value
      *
-     * @return void
+     * @return \Quorrax\Interfaces\Variable
      */
     public function setValue($value);
 }
