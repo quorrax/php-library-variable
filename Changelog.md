@@ -1,3 +1,21 @@
+# 1.2.0 #
+
+## Added ##
+
+### Classes ###
++ Added the `isEmtpy()` public method to the `Quorrax\Classes\Variable` class.
++ Added the `isNumeric()` public method to the `Quorrax\Classes\Variable` class.
++ Added the `isObject()` public method to the `Quorrax\Classes\Variable` class.
++ Added the `isResource()` public method to the `Quorrax\Classes\Variable` class.
++ Added the `isScalar()` public method to the `Quorrax\Classes\Variable` class.
+
+### Interfaces ###
++ Added the `isEmtpy()` public method to the `Quorrax\Interfaces\Variable` interface.
++ Added the `isNumeric()` public method to the `Quorrax\Interfaces\Variable` interface.
++ Added the `isObject()` public method to the `Quorrax\Interfaces\Variable` interface.
++ Added the `isResource()` public method to the `Quorrax\Interfaces\Variable` interface.
++ Added the `isScalar()` public method to the `Quorrax\Interfaces\Variable` interface.
+
 # 1.1.0 #
 
 ## Added ##
