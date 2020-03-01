@@ -10,23 +10,25 @@ php:
 
 cache:
     directories:
-        - ./vendor
+        - /home/travis/build/quorrax/php-library-variable/vendor
+        - /home/travis/.phpenv/shim/composer
 
 stages:
     - install
 
 jobs:
     include:
-        -   name: Composer
+        -   name: Install Composer
             script:
-                - comoser install
+                - curl -s https://getcomposer.org/installer | php -- --install-dir=/home/travis/.phpenv/shims --filename=composer
+                - composer diagnose
             stage: install
-
-before_install:
-    - curl -s https://getcomposer.org/installer | php -- --install-dir=/home/travis/.phpenv/shims --filename=composer
-    - composer diagnose
-    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-    - chmod +x ./cc-test-reporter
+        -   name: Install Code Climate Reporter
+            script:
+                - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+                - chmod +x ./cc-test-reporter
+                - composer diagnose
+            stage: install
 
 install:
     - composer install --no-progress
