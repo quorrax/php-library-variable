@@ -10,8 +10,9 @@ php:
 
 cache:
     directories:
-        - /home/travis/build/quorrax/php-library-variable/vendor
         - /home/travis/.phpenv/shim/composer
+        - /home/travis/build/quorrax/php-library-variable/cc-test-reporter
+        - /home/travis/build/quorrax/php-library-variable/vendor
 
 stages:
     - install
