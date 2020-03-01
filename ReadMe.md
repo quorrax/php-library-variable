@@ -9,6 +9,12 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/d7ecc5dad16f84320509/maintainability)](https://codeclimate.com/github/quorrax/php-library-variable/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d7ecc5dad16f84320509/test_coverage)](https://codeclimate.com/github/quorrax/php-library-variable/test_coverage)
 
+## Scrutinizer CI ##
+
+[![Build Status](https://scrutinizer-ci.com/g/quorrax/php-library-variable/badges/build.png?b=pro)](https://scrutinizer-ci.com/g/quorrax/php-library-variable/build-status/pro)
+[![Code Coverage](https://scrutinizer-ci.com/g/quorrax/php-library-variable/badges/coverage.png?b=pro)](https://scrutinizer-ci.com/g/quorrax/php-library-variable/?branch=pro)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/quorrax/php-library-variable/badges/quality-score.png?b=pro)](https://scrutinizer-ci.com/g/quorrax/php-library-variable/?branch=pro)
+
 ## Travis CI ##
 
 [![Build Status](https://travis-ci.org/quorrax/php-library-variable.svg?branch=pro)](https://travis-ci.org/quorrax/php-library-variable)
