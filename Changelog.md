@@ -1,3 +1,11 @@
+# 1.3.1 #
+
+## Fixed ##
+
+### Interfaces ###
+
++ Fixed the `setValue()` public method's documentation comment in the `Quorrax\Interfaces\Variable` interface.
+
 # 1.3.0 #
 
 ## Added ##
