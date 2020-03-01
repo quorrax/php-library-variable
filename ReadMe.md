@@ -1,5 +1,9 @@
 # Continuous Integration #
 
+## Coveralls ##
+
+[![Coverage Status](https://coveralls.io/repos/github/quorrax/php-library-variable/badge.svg)](https://coveralls.io/github/quorrax/php-library-variable)
+
 ## Code Climate ##
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/d7ecc5dad16f84320509/maintainability)](https://codeclimate.com/github/quorrax/php-library-variable/maintainability)
