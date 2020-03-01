@@ -17,6 +17,7 @@ stages:
     - install
     - check
     - test
+    - coverage
 
 jobs:
     include:
@@ -34,8 +35,13 @@ jobs:
             script:
                 - composer check
                 - composer check-tests
-        -   before_script:
+        -   name: Test Code
+            before_script:
                 - composer diagnose
             script:
                 - composer test
             stage: test
+        -   name: Coverage
+            script:
+                - composer diagnose
+            stage: coverage
