@@ -25,5 +25,5 @@ script:
     - composer test
 
 after_success:
-    - comopser require --dev --no-progress php-coveralls/php-coveralls
+    - composer require --dev --no-progress php-coveralls/php-coveralls
     - ./vendor/bin/php-coveralls -v
