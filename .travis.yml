@@ -22,8 +22,8 @@ before_script:
     - composer sniff-test
 
 script:
-    - composer test
+    - composer test --coverage-clover ./coverage.xml
 
 after_success:
     - composer require --dev --no-progress php-coveralls/php-coveralls
-    - ./vendor/bin/php-coveralls -v
+    - ./vendor/bin/php-coveralls -v -x ./coverage.xml
