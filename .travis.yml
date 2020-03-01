@@ -33,14 +33,6 @@ jobs:
 install:
     - composer install --no-progress
 
-before_script:
-    - composer check
-    - composer check-test
-    - composer sniff
-    - composer sniff-test
-    - ./cc-test-reporter before-build
-
-
 script:
     - composer test
 
