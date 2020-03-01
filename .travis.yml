@@ -29,6 +29,9 @@ jobs:
             script:
                 - composer check
                 - composer check-tests
+        -   before_script:
+                - echo "Hi!"
+            stage: test
 
 language: php
 
