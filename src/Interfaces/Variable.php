@@ -26,6 +26,11 @@ namespace Quorrax\Interfaces;
 interface Variable
 {
     /**
+     * @return \Quorrax\Interfaces\Variable
+     */
+    public function getType();
+
+    /**
      * @return mixed
      */
     public function getValue();

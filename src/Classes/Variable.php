@@ -52,6 +52,20 @@ class Variable implements VariableInterface
     }
 
     /**
+     * @return \Quorrax\Interfaces\Variable
+     */
+    public function getType()
+    {
+        $type = new Variable();
+        try {
+            $type->setValue(gettype($this->getValue()));
+        } catch (UnexpectedValueException $exception) {
+            $type->setValue("undefined");
+        }
+        return $type;
+    }
+
+    /**
      * @return mixed
      * @throws \UnexpectedValueException
      */

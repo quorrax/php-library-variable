@@ -67,6 +67,9 @@ class VariableTest
         ];
     }
 
+    /**
+     * @return array
+     */
     private function getValuesBooleanEmptyNot()
     {
         return [
@@ -237,6 +240,62 @@ class VariableTest
     /**
      * @return array
      */
+    public function testMethodGetTypeArray()
+    {
+        return $this->getValuesArray();
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodGetTypeBoolean()
+    {
+        return $this->getValuesBoolean();
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodGetTypeDouble()
+    {
+        return $this->getValuesFloat();
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodGetTypeInteger()
+    {
+        return $this->getValuesInteger();
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodGetTypeObject()
+    {
+        return $this->getValuesObject();
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodGetTypeResource()
+    {
+        return $this->getValuesResource();
+    }
+
+    /**
+     * @return array
+     */
+    public function testMethodGetTypeString()
+    {
+        return $this->getValuesString();
+    }
+
+    /**
+     * @return array
+     */
     public function testMethodGetValue()
     {
         return $this->testMethodSetValue();
@@ -364,6 +423,9 @@ class VariableTest
         return $this->getValuesInteger();
     }
 
+    /**
+     * @return array
+     */
     public function testMethodIsNumericFalse()
     {
         return array_merge(

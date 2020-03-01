@@ -20,6 +20,129 @@ class VariableTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodGetTypeArray()
+     *
+     * @param array $givenValue
+     *
+     * @return void
+     */
+    public function testMethodGetTypeArray($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $type = $variable->getType();
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("array", $type->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodGetTypeBoolean()
+     *
+     * @param bool $givenValue
+     *
+     * @return void
+     */
+    public function testMethodGetTypeBoolean($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $type = $variable->getType();
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("boolean", $type->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodGetTypeDouble()
+     *
+     * @param float $givenValue
+     *
+     * @return void
+     */
+    public function testMethodGetTypeDouble($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $type = $variable->getType();
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("double", $type->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodGetTypeInteger()
+     *
+     * @param int $givenValue
+     *
+     * @return void
+     */
+    public function testMethodGetTypeInteger($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $type = $variable->getType();
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("integer", $type->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodGetTypeObject()
+     *
+     * @param object $givenValue
+     *
+     * @return void
+     */
+    public function testMethodGetTypeObject($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $type = $variable->getType();
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("object", $type->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodGetTypeResource()
+     *
+     * @param resource $givenValue
+     *
+     * @return void
+     */
+    public function testMethodGetTypeResource($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $type = $variable->getType();
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("resource", $type->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodGetTypeString()
+     *
+     * @param string $givenValue
+     *
+     * @return void
+     */
+    public function testMethodGetTypeString($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $type = $variable->getType();
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("string", $type->getValue());
+    }
+
+    /**
+     * @return void
+     */
+    public function testMethodGetTypeUndefined()
+    {
+        $variable = new Variable();
+        $type = $variable->getType();
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("undefined", $type->getValue());
+    }
+
+    /**
      * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodGetValue()
      *
      * @param mixed $givenValue
