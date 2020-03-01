@@ -25,13 +25,11 @@ before_script:
     - ./cc-test-reporter before-build
 
 
-after_script:
-    - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-
 script:
     - composer test
 
 after_success:
+    - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
     - composer require --dev --no-progress php-coveralls/php-coveralls
     - ./vendor/bin/phpunit -c ./phpunit.xml --coverage-clover ./coverage.xml
     - ./vendor/bin/php-coveralls -o ./coverage.json -x ./coverage.xml
