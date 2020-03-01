@@ -1,5 +1,10 @@
 # Continuous Integration #
 
+## Code Climate ##
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/d7ecc5dad16f84320509/maintainability)](https://codeclimate.com/github/quorrax/php-library-variable/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d7ecc5dad16f84320509/test_coverage)](https://codeclimate.com/github/quorrax/php-library-variable/test_coverage)
+
 ## Travis CI ##
 
 [![Build Status](https://travis-ci.org/quorrax/php-library-variable.svg?branch=pro)](https://travis-ci.org/quorrax/php-library-variable)
