@@ -34,7 +34,9 @@
     },
     "scripts": {
         "check": "phpmd ./src text ./ruleset.xml",
+        "check-tests": "phpmd ./tests text ./tests/ruleset.xml",
         "sniff": "phpcs --standard=PSR2 ./src",
+        "sniff-tests": "phpcs --standard=PSR2 ./src",
         "test": "phpunit -c ./phpunit.xml"
     },
     "type": "library"

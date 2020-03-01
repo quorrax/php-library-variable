@@ -20,6 +20,129 @@ class VariableTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodGetTypeArray()
+     *
+     * @param array $givenValue
+     *
+     * @return void
+     */
+    public function testMethodGetTypeArray($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $type = $variable->getType();
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("array", $type->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodGetTypeBoolean()
+     *
+     * @param bool $givenValue
+     *
+     * @return void
+     */
+    public function testMethodGetTypeBoolean($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $type = $variable->getType();
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("boolean", $type->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodGetTypeDouble()
+     *
+     * @param float $givenValue
+     *
+     * @return void
+     */
+    public function testMethodGetTypeDouble($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $type = $variable->getType();
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("double", $type->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodGetTypeInteger()
+     *
+     * @param int $givenValue
+     *
+     * @return void
+     */
+    public function testMethodGetTypeInteger($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $type = $variable->getType();
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("integer", $type->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodGetTypeObject()
+     *
+     * @param object $givenValue
+     *
+     * @return void
+     */
+    public function testMethodGetTypeObject($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $type = $variable->getType();
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("object", $type->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodGetTypeResource()
+     *
+     * @param resource $givenValue
+     *
+     * @return void
+     */
+    public function testMethodGetTypeResource($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $type = $variable->getType();
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("resource", $type->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodGetTypeString()
+     *
+     * @param string $givenValue
+     *
+     * @return void
+     */
+    public function testMethodGetTypeString($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $type = $variable->getType();
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("string", $type->getValue());
+    }
+
+    /**
+     * @return void
+     */
+    public function testMethodGetTypeUndefined()
+    {
+        $variable = new Variable();
+        $type = $variable->getType();
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("undefined", $type->getValue());
+    }
+
+    /**
      * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodGetValue()
      *
      * @param mixed $givenValue
@@ -141,6 +264,50 @@ class VariableTest extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
+    public function testMethodIsEmptyException()
+    {
+        $variable = new Variable();
+        $variable->isEmpty();
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsEmptyFalse()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsEmptyFalse($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isEmpty = $variable->isEmpty();
+        $this->assertInstanceOf(VariableInterface::class, $isEmpty);
+        $this->assertFalse($isEmpty->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsEmptyTrue()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsEmptyTrue($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isEmpty = $variable->isEmpty();
+        $this->assertInstanceOf(VariableInterface::class, $isEmpty);
+        $this->assertTrue($isEmpty->getValue());
+    }
+
+    /**
+     * @expectedException \UnexpectedValueException
+     * @expectedExceptionMessage The property {$value} is not defined.
+     *
+     * @return void
+     */
     public function testMethodIsFloatException()
     {
         $variable = new Variable();
@@ -221,6 +388,185 @@ class VariableTest extends PHPUnit_Framework_TestCase
         $isInteger = $variable->isInteger();
         $this->assertInstanceOf(VariableInterface::class, $isInteger);
         $this->assertTrue($isInteger->getValue());
+    }
+
+    /**
+     * @expectedException \UnexpectedValueException
+     * @expectedExceptionMessage The property {$value} is not defined.
+     *
+     * @return void
+     */
+    public function testMethodIsNumericException()
+    {
+        $variable = new Variable();
+        $variable->isNumeric();
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsNumericFalse()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsNumericFalse($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isNumeric = $variable->isNumeric();
+        $this->assertInstanceOf(VariableInterface::class, $isNumeric);
+        $this->assertFalse($isNumeric->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsNumericTrue()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsNumericTrue($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isNumeric = $variable->isNumeric();
+        $this->assertInstanceOf(VariableInterface::class, $isNumeric);
+        $this->assertTrue($isNumeric->getValue());
+    }
+
+    /**
+     * @expectedException \UnexpectedValueException
+     * @expectedExceptionCode 0
+     * @expectedExceptionMessage The property {$value} is not defined.
+     *
+     * @return void
+     */
+    public function testMethodIsObjectException()
+    {
+        $variable = new Variable();
+        $variable->isObject();
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsObjectFalse()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsObjectFalse($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isObject = $variable->isObject();
+        $this->assertInstanceOf(VariableInterface::class, $isObject);
+        $this->assertFalse($isObject->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsObjectTrue()
+     *
+     * @param object $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsObjectTrue($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isObject = $variable->isObject();
+        $this->assertInstanceOf(VariableInterface::class, $isObject);
+        $this->assertTrue($isObject->getValue());
+    }
+
+    /**
+     * @expectedException \UnexpectedValueException
+     * @expectedExceptionCode 0
+     * @expectedExceptionMessage The property {$value} is not defined.
+     *
+     * @return void
+     */
+    public function testMethodIsResourceException()
+    {
+        $variable = new Variable();
+        $variable->isResource();
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsResourceFalse()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsResourceFalse($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isResource = $variable->isResource();
+        $this->assertInstanceOf(VariableInterface::class, $isResource);
+        $this->assertFalse($isResource->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsResourceTrue()
+     *
+     * @param resource $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsResourceTrue($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isResource = $variable->isResource();
+        $this->assertInstanceOf(VariableInterface::class, $isResource);
+        $this->assertTrue($isResource->getValue());
+    }
+
+    /**
+     * @expectedException \UnexpectedValueException
+     * @expectedExceptionCode 0
+     * @expectedExceptionMessage The property {$value} is not defined.
+     *
+     * @return void
+     */
+    public function testMethodIsScalarException()
+    {
+        $variable = new Variable();
+        $variable->isScalar();
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsScalarFalse()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsScalarFalse($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isScalar = $variable->isScalar();
+        $this->assertInstanceOf(VariableInterface::class, $isScalar);
+        $this->assertFalse($isScalar->getValue());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Providers\VariableTest::testMethodIsScalarTrue()
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodIsScalarTrue($givenValue)
+    {
+        $variable = new Variable();
+        $variable->setValue($givenValue);
+        $isScalar = $variable->isScalar();
+        $this->assertInstanceOf(VariableInterface::class, $isScalar);
+        $this->assertTrue($isScalar->getValue());
     }
 
     /**

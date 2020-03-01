@@ -26,6 +26,11 @@ namespace Quorrax\Interfaces;
 interface Variable
 {
     /**
+     * @return \Quorrax\Interfaces\Variable
+     */
+    public function getType();
+
+    /**
      * @return mixed
      */
     public function getValue();
@@ -43,12 +48,37 @@ interface Variable
     /**
      * @return \Quorrax\Interfaces\Variable
      */
+    public function isEmpty();
+
+    /**
+     * @return \Quorrax\Interfaces\Variable
+     */
     public function isFloat();
 
     /**
      * @return \Quorrax\Interfaces\Variable
      */
     public function isInteger();
+
+    /**
+     * @return \Quorrax\Interfaces\Variable
+     */
+    public function isNumeric();
+
+    /**
+     * @return \Quorrax\Interfaces\Variable
+     */
+    public function isObject();
+
+    /**
+     * @return \Quorrax\Interfaces\Variable
+     */
+    public function isResource();
+
+    /**
+     * @return \Quorrax\Interfaces\Variable
+     */
+    public function isScalar();
 
     /**
      * @return \Quorrax\Interfaces\Variable

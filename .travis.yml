@@ -17,7 +17,9 @@ install:
 
 before_script:
     - composer check
+    - composer check-test
     - composer sniff
+    - composer sniff-test
 
 script:
     - composer test

@@ -52,6 +52,20 @@ class Variable implements VariableInterface
     }
 
     /**
+     * @return \Quorrax\Interfaces\Variable
+     */
+    public function getType()
+    {
+        $type = new Variable();
+        try {
+            $type->setValue(gettype($this->getValue()));
+        } catch (UnexpectedValueException $exception) {
+            $type->setValue("undefined");
+        }
+        return $type;
+    }
+
+    /**
      * @return mixed
      * @throws \UnexpectedValueException
      */
@@ -86,6 +100,21 @@ class Variable implements VariableInterface
      * @return \Quorrax\Interfaces\Variable
      * @throws \UnexpectedValueException
      */
+    public function isEmpty()
+    {
+        $result = new Variable();
+        if (empty($this->getValue())) {
+            $result->setValue(true);
+        } else {
+            $result->setValue(false);
+        }
+        return $result;
+    }
+
+    /**
+     * @return \Quorrax\Interfaces\Variable
+     * @throws \UnexpectedValueException
+     */
     public function isFloat()
     {
         return $this->is("is_float");
@@ -98,6 +127,41 @@ class Variable implements VariableInterface
     public function isInteger()
     {
         return $this->is("is_int");
+    }
+
+    /**
+     * @return \Quorrax\Interfaces\Variable
+     */
+    public function isNumeric()
+    {
+        return $this->is("is_numeric");
+    }
+
+    /**
+     * @return \Quorrax\Interfaces\Variable
+     * @throws \UnexpectedValueException
+     */
+    public function isObject()
+    {
+        return $this->is("is_object");
+    }
+
+    /**
+     * @return \Quorrax\Interfaces\Variable
+     * @throws \UnexpectedValueException
+     */
+    public function isResource()
+    {
+        return $this->is("is_resource");
+    }
+
+    /**
+     * @return \Quorrax\Interfaces\Variable
+     * @throws \UnexpectedValueException
+     */
+    public function isScalar()
+    {
+        return $this->is("is_scalar");
     }
 
     /**
