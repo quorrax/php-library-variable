@@ -26,6 +26,5 @@ script:
 
 after_success:
     - composer require --dev --no-progress php-coveralls/php-coveralls
-    - mkdir -p ./build/logs
-    - ./vendor/bin/phpunit -c ./phpunit.xml --coverage-clover ./build/logs/coverage.xml
-    - ./vendor/bin/php-coveralls -v
+    - ./vendor/bin/phpunit -c ./phpunit.xml --coverage-clover ./coverage.xml
+    - ./vendor/bin/php-coveralls
