@@ -11,6 +11,8 @@ php:
 before_install:
     - curl -s https://getcomposer.org/installer | php -- --install-dir=/home/travis/.phpenv/shims --filename=composer
     - composer diagnose
+    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+    - chmod +x ./cc-test-reporter
 
 install:
     - composer install --no-progress
@@ -20,6 +22,11 @@ before_script:
     - composer check-test
     - composer sniff
     - composer sniff-test
+    - ./cc-test-reporter before-build
+
+
+after_script:
+    - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 script:
     - composer test
