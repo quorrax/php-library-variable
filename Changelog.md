@@ -31,11 +31,11 @@
 
 ### Interfaces ###
 
-+ Added the `isArray()` public method to the `Quorrax\Interfaces\Variable` class.
-+ Added the `isBoolean()` public method to the `Quorrax\Interfaces\Variable` class.
-+ Added the `isFloat()` public method to the `Quorrax\Interfaces\Variable` class.
-+ Added the `isInteger()` public method to the `Quorrax\Interfaces\Variable` class.
-+ Added the `isString()` public method to the `Quorrax\Interfaces\Variable` class.
++ Added the `isArray()` public method to the `Quorrax\Interfaces\Variable` interface.
++ Added the `isBoolean()` public method to the `Quorrax\Interfaces\Variable` interface.
++ Added the `isFloat()` public method to the `Quorrax\Interfaces\Variable` interface.
++ Added the `isInteger()` public method to the `Quorrax\Interfaces\Variable` interface.
++ Added the `isString()` public method to the `Quorrax\Interfaces\Variable` interface.
 
 # 1.0.0 #
 
