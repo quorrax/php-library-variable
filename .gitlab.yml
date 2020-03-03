@@ -15,8 +15,6 @@ Composer:
         - composer diagnose
     script:
         - composer install --no-progress
-    after_script:
-        - composer update
     stage: install
 
 PHP Code Sniffer:
