@@ -1,45 +1,3 @@
-after_success:
-    - composer diagnose
-
-before_script:
-    - composer diagnose
-
-cache:
-    directories:
-        - /home/travis/.phpenv/shim/composer
-        - /home/travis/build/quorrax/php-library-variable/vendor
-
-stages:
-    - install
-    - check
-    - test
-
-jobs:
-    include:
-        -   name: Install Composer
-            script:
-                - curl -s https://getcomposer.org/installer | php -- --install-dir=/home/travis/.phpenv/shims --filename=composer
-            stage: install
-        -   name: Code Sniffer
-            script:
-                - composer sniff
-                - composer sniff-tests
-            stage: check
-        -   name: Mess Detector
-            script:
-                - composer check
-                - composer check-tests
-        -   before_script:
-                - echo "Hi!"
-            php:
-                - 5.6
-                - 7.0
-                - 7.1
-                - 7.2
-                - 7.3
-                - 7.4
-            stage: test
-
 language: php
 
 os: linux
@@ -51,6 +9,9 @@ php:
     - 7.2
     - 7.3
     - 7.4
+
+install:
+    - composer install --no-progress
 
 script:
     - composer test
