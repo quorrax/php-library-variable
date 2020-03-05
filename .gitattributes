@@ -11,9 +11,3 @@
 
 # PHP files.
 *.php text eol=lf
-
-# XML files.
-*.xml text eol=lf
-
-# YAML files.
-*.yml text eol=lf
