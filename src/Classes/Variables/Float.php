@@ -21,14 +21,16 @@
 namespace Quorrax\Classes\Variables;
 
 use InvalidArgumentException;
-use Quorrax\Classes\Variable;
 use Quorrax\Interfaces\Variables\Float as FloatInterface;
+use Quorrax\Traits\Variable;
 
 /**
  * @package Quorrax\Classes\Variables
  */
-class Float extends Variable implements FloatInterface
+class Float implements FloatInterface
 {
+    use Variable;
+
     /**
      * @var float
      */
@@ -46,6 +48,7 @@ class Float extends Variable implements FloatInterface
      * @param float $value
      *
      * @return \Quorrax\Interfaces\Variables\Float
+     * @throws \InvalidArgumentException
      */
     public function setValue($value)
     {

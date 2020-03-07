@@ -21,14 +21,16 @@
 namespace Quorrax\Classes\Variables;
 
 use InvalidArgumentException;
-use Quorrax\Classes\Variable;
 use Quorrax\Interfaces\Variables\Character as CharacterInterface;
+use Quorrax\Traits\Variable;
 
 /**
  * @package Quorrax\Classes\Variables
  */
-class Character extends Variable implements CharacterInterface
+class Character implements CharacterInterface
 {
+    use Variable;
+
     /**
      * @var string
      */

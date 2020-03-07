@@ -19,6 +19,11 @@
     + Added the `setValue()` public method.
     + Added the `__construct()` public method.
     + Added the `value` private property.
++ Added the `Quorrax\Classes\Variables\Integer` class.
+    + Added the `getValue()` public method.
+    + Added the `setValue()` public method.
+    + Added the `__construct()` public method.
+    + Added the `value` private property.
 
 ### Interfaces ###
 
@@ -34,6 +39,26 @@
     + Added the `getValue()` public method.
     + Added the `setValue()` public method.
     + Added the `__construct()` public method.
++ Added the `Quorrax\Interfaces\Variables\Integer` interface.
+    + Added the `getValue()` public method.
+    + Added the `setValue()` public method.
+    + Added the `__construct()` public method.
+
+### Traits ###
+
++ Added the `\Quorrax\Traits\Variable` trait.
+    + Added the `is()` private method.
+    + Added the `getType()` public method.
+    + Added the `isArray()` public method.
+    + Added the `isBoolean()` public method.
+    + Added the `isEmpty()` public method.
+    + Added the `isFloat()` public method.
+    + Added the `isInteger()` public method.
+    + Added the `isNumeric()` public method.
+    + Added the `isObject()` public method.
+    + Added the `isResource()` public method.
+    + Added the `isScalar()` public method.
+    + Added the `isString()` public method.
 
 # 1.3.1 #
 
