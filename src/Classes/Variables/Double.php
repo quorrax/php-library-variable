@@ -21,23 +21,23 @@
 namespace Quorrax\Classes\Variables;
 
 use InvalidArgumentException;
-use Quorrax\Interfaces\Variables\Float as FloatInterface;
+use Quorrax\Interfaces\Variables\Double as DoubleInterface;
 use Quorrax\Traits\Variable;
 
 /**
  * @package Quorrax\Classes\Variables
  */
-class Float implements FloatInterface
+class Double implements DoubleInterface
 {
     use Variable;
 
     /**
-     * @var float
+     * @var Double
      */
     private $value;
 
     /**
-     * @return float
+     * @return Double
      */
     public function getValue()
     {
@@ -45,9 +45,9 @@ class Float implements FloatInterface
     }
 
     /**
-     * @param float $value
+     * @param Double $value
      *
-     * @return \Quorrax\Interfaces\Variables\Float
+     * @return \Quorrax\Interfaces\Variables\Double
      * @throws \InvalidArgumentException
      */
     public function setValue($value)
@@ -61,7 +61,7 @@ class Float implements FloatInterface
     }
 
     /**
-     * @param float $value
+     * @param Double $value
      */
     public function __construct($value = 0.0)
     {

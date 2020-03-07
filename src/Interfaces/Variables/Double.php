@@ -25,22 +25,22 @@ use Quorrax\Interfaces\Variable;
 /**
  * @package Quorrax\Interfaces\Variables
  */
-interface Float extends Variable
+interface Double extends Variable
 {
     /**
-     * @return float
+     * @return Double
      */
     public function getValue();
 
     /**
-     * @param float $value
+     * @param Double $value
      *
-     * @return \Quorrax\Interfaces\Variables\Float
+     * @return \Quorrax\Interfaces\Variables\Double
      */
     public function setValue($value);
 
     /**
-     * @param float $value
+     * @param Double $value
      */
     public function __construct($value = 0.0);
 }
