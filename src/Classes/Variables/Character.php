@@ -22,20 +22,20 @@ namespace Quorrax\Classes\Variables;
 
 use InvalidArgumentException;
 use Quorrax\Classes\Variable;
-use Quorrax\Interfaces\Variables\Boolean as BooleanInterface;
+use Quorrax\Interfaces\Variables\Character as CharacterInterface;
 
 /**
  * @package Quorrax\Classes\Variables
  */
-class Boolean extends Variable implements BooleanInterface
+class Character extends Variable implements CharacterInterface
 {
     /**
-     * @var bool
+     * @var string
      */
     private $value;
 
     /**
-     * @return bool
+     * @return string
      */
     public function getValue()
     {
@@ -43,25 +43,25 @@ class Boolean extends Variable implements BooleanInterface
     }
 
     /**
-     * @param bool $value
+     * @param string $value
      *
-     * @return \Quorrax\Interfaces\Variables\Boolean
+     * @return \Quorrax\Interfaces\Variables\Character
      * @throws \InvalidArgumentException
      */
     public function setValue($value)
     {
-        if (is_bool($value)) {
-            $this->value = $value;
+        if (is_string($value)) {
+            $this->value;
         } else {
-            throw new InvalidArgumentException("The given argument for the {\$value} parameter is not a boolean.");
+            throw new InvalidArgumentException("The given argument for the {\$value} parameter is not a string.");
         }
         return $this;
     }
 
     /**
-     * @param bool $value
+     * @param string $value
      */
-    public function __construct($value = false)
+    public function __construct($value = "")
     {
         $this->setValue($value);
     }
