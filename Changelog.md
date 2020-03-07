@@ -1,3 +1,22 @@
+# 2.0.0 #
+
+## Added ##
+
+### Classes ###
+
++ Added the `Quorrax\Classes\Variables\Boolean` class.
+    + Added the `getValue()` public method.
+    + Added the `setValue()` public method.
+    + Added the `__construct()` public method.
+    + Added the `value` private property.
+
+### Interfaces ###
+
++ Added the `Quorrax\Interfaces\Variables\Boolean` interface.
+    + Added the `getValue()` public method.
+    + Added the `setValue()` public method.
+    + Added the `__construct()` public method.
+
 # 1.3.1 #
 
 ## Fixed ##
