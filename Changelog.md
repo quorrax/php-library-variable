@@ -14,6 +14,11 @@
     + Added the `setValue()` public method.
     + Added the `__construct()` public method.
     + Added the `value` private property.
++ Added the `Quorrax\Classes\Variables\Float` class.
+    + Added the `getValue()` public method.
+    + Added the `setValue()` public method.
+    + Added the `__construct()` public method.
+    + Added the `value` private property.
 
 ### Interfaces ###
 
@@ -22,6 +27,10 @@
     + Added the `setValue()` public method.
     + Added the `__construct()` public method.
 + Added the `Quorrax\Interfaces\Variables\Character` interface.
+    + Added the `getValue()` public method.
+    + Added the `setValue()` public method.
+    + Added the `__construct()` public method.
++ Added the `Quorrax\Interfaces\Variables\Float` interface.
     + Added the `getValue()` public method.
     + Added the `setValue()` public method.
     + Added the `__construct()` public method.
