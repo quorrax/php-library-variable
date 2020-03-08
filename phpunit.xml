@@ -2,7 +2,7 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/5.7/phpunit.xsd" bootstrap="./vendor/autoload.php">
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./vendor/quorrax/variable/src/</directory>
+            <directory suffix=".php">./src/</directory>
             <exclude>
                 <directory suffix=".php">./tests/</directory>
             </exclude>
@@ -16,7 +16,7 @@
             <file>./tests/Classes/VariableTest.php</file>
         </testsuite>
         <testsuite name="Boolean Test Suite">
-            <file>./tests/Classes/VariableTest.php</file>
+            <file>./tests/Classes/BooleanTest.php</file>
         </testsuite>
         <testsuite name="Character Test Suite">
             <file>./tests/Classes/VariableTest.php</file>
