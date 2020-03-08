@@ -18,14 +18,14 @@
  * along with quorrax/variable. If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Quorrax\Classes\Variables;
+namespace Quorrax\Classes;
 
 use InvalidArgumentException;
 use Quorrax\Interfaces\Variables\Character as CharacterInterface;
 use Quorrax\Traits\Variable;
 
 /**
- * @package Quorrax\Classes\Variables
+ * @package Quorrax\Classes
  */
 class Character implements CharacterInterface
 {
@@ -53,7 +53,7 @@ class Character implements CharacterInterface
     public function setValue($value)
     {
         if (is_string($value)) {
-            $this->value;
+            $this->value = $value;
         } else {
             throw new InvalidArgumentException("The given argument for the {\$value} parameter is not a string.");
         }

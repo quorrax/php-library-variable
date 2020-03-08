@@ -25,7 +25,7 @@ use Quorrax\Interfaces\Variables\Boolean as BooleanInterface;
 use Quorrax\Traits\Variable;
 
 /**
- * @package Quorrax\Classes\Variables
+ * @package Quorrax\Classes
  */
 class Boolean implements BooleanInterface
 {
