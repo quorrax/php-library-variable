@@ -13,13 +13,7 @@
     </logging>
     <testsuites>
         <testsuite name="Variable Test Suite">
-            <file>./tests/Classes/VariableTest.php</file>
-        </testsuite>
-        <testsuite name="Boolean Test Suite">
-            <file>./tests/Classes/BooleanTest.php</file>
-        </testsuite>
-        <testsuite name="Character Test Suite">
-            <file>./tests/Classes/CharacterTest.php</file>
+            <directory>./tests/</directory>
         </testsuite>
     </testsuites>
 </phpunit>
