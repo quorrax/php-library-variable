@@ -19,7 +19,7 @@
             <file>./tests/Classes/BooleanTest.php</file>
         </testsuite>
         <testsuite name="Character Test Suite">
-            <file>./tests/Classes/VariableTest.php</file>
+            <file>./tests/Classes/CharacterTest.php</file>
         </testsuite>
         <testsuite name="Float Test Suite">
             <file>./tests/Classes/VariableTest.php</file>
