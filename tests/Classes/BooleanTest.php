@@ -50,6 +50,14 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     /**
      * @return array
      */
+    public function provideTestMethodConstruct()
+    {
+        return $this->provideTestMethodSetValue();
+    }
+
+    /**
+     * @return array
+     */
     public function provideTestMethodGetValue()
     {
         return $this->provideTestMethodSetValue();
@@ -77,6 +85,42 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     public function testImplementationVariable()
     {
         $this->assertInstanceOf(VariableInterface::class, new Boolean());
+    }
+
+    /**
+     * @dataProvider provideTestMethodConstruct
+     *
+     * @param bool $givenValue
+     *
+     * @return void
+     */
+    public function testMethodConstruct($givenValue)
+    {
+        $this->assertInstanceOf(Boolean::class, new Boolean($givenValue));
+    }
+
+    /**
+     * @return void
+     */
+    public function testMethodConstructDefault()
+    {
+        $this->assertInstanceOf(Boolean::class, new Boolean());
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Classes\CharacterTest::provideTestMethodConstruct
+     *
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionCode 0
+     * @expectedExceptionMessage The given argument for the {$value} parameter is not a boolean.
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodConstructException($givenValue)
+    {
+        new Boolean($givenValue);
     }
 
     /**
@@ -112,6 +156,23 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     {
         $boolean = new Boolean();
         $this->assertSame($boolean, $boolean->setValue($givenValue));
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Classes\CharacterTest::provideTestMethodSetValue()
+     *
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionCode 0
+     * @expectedExceptionMessage The given argument for the {$value} parameter is not a boolean.
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     */
+    public function testMethodSetValueException($givenValue)
+    {
+        $boolean = new Boolean();
+        $boolean->setValue($givenValue);
     }
 
     /**

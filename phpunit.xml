@@ -21,11 +21,5 @@
         <testsuite name="Character Test Suite">
             <file>./tests/Classes/CharacterTest.php</file>
         </testsuite>
-        <testsuite name="Float Test Suite">
-            <file>./tests/Classes/VariableTest.php</file>
-        </testsuite>
-        <testsuite name="Integer Test Suite">
-            <file>./tests/Classes/VariableTest.php</file>
-        </testsuite>
     </testsuites>
 </phpunit>

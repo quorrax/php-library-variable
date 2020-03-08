@@ -62,6 +62,8 @@ class Boolean implements BooleanInterface
 
     /**
      * @param bool $value
+     *
+     * @throws \InvalidArgumentException
      */
     public function __construct($value = false)
     {

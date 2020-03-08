@@ -12,6 +12,9 @@ use Quorrax\Interfaces\Variables\Character as CharacterInterface;
  */
 class CharacterTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @return array
+     */
     private function getValues()
     {
         return array_merge(
@@ -20,6 +23,9 @@ class CharacterTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * @return array
+     */
     private function getValuesEmpty()
     {
         return [
@@ -32,6 +38,9 @@ class CharacterTest extends PHPUnit_Framework_TestCase
         ];
     }
 
+    /**
+     * @return array
+     */
     private function getValuesEmptyNot()
     {
         return [
@@ -39,6 +48,14 @@ class CharacterTest extends PHPUnit_Framework_TestCase
                 "string",
             ],
         ];
+    }
+
+    /**
+     * @return array
+     */
+    public function provideTestMethodConstruct()
+    {
+        return $this->provideTestMethodSetValue();
     }
 
     /**
