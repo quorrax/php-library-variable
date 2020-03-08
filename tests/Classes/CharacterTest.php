@@ -61,6 +61,14 @@ class CharacterTest extends PHPUnit_Framework_TestCase
     /**
      * @return array
      */
+    public function provideTestMethodGetType()
+    {
+        return $this->provideTestMethodSetValue();
+    }
+
+    /**
+     * @return array
+     */
     public function provideTestMethodGetValue()
     {
         return $this->provideTestMethodSetValue();
@@ -88,6 +96,36 @@ class CharacterTest extends PHPUnit_Framework_TestCase
     public function testImplementationVariable()
     {
         $this->assertInstanceOf(VariableInterface::class, new Character());
+    }
+
+    /**
+     * @dataProvider provideTestMethodGetType
+     *
+     * @param string $givenValue
+     *
+     * @return void
+     * @throws \InvalidArgumentException
+     */
+    public function testMethodGetType($givenValue)
+    {
+        $character = new Character($givenValue);
+        $type = $character->getType();
+        $this->assertInstanceOf(CharacterInterface::class, $type);
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("string", $type->getValue());
+    }
+
+    /**
+     * @return void
+     * @throws \InvalidArgumentException
+     */
+    public function testMethodGetTypeDefault()
+    {
+        $character = new Character();
+        $type = $character->getType();
+        $this->assertInstanceOf(CharacterInterface::class, $type);
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("string", $type->getValue());
     }
 
     /**

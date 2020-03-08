@@ -20,8 +20,8 @@
 
 namespace Quorrax\Traits;
 
+use Quorrax\Classes\Character;
 use Quorrax\Classes\Variables\Boolean;
-use Quorrax\Classes\Variables\Character;
 
 /**
  * @package Quorrax\Traits
