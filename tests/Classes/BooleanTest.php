@@ -6,6 +6,7 @@ use PHPUnit_Framework_TestCase;
 use Quorrax\Classes\Boolean;
 use Quorrax\Interfaces\Variable as VariableInterface;
 use Quorrax\Interfaces\Variables\Boolean as BooleanInterface;
+use Quorrax\Interfaces\Variables\Character as CharacterInterface;
 
 /**
  * @package Quorrax\Tests\Classes
@@ -51,6 +52,14 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      * @return array
      */
     public function provideTestMethodConstruct()
+    {
+        return $this->provideTestMethodSetValue();
+    }
+
+    /**
+     * @return array
+     */
+    public function provideTestMethodGetType()
     {
         return $this->provideTestMethodSetValue();
     }
@@ -121,6 +130,36 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     public function testMethodConstructException($givenValue)
     {
         new Boolean($givenValue);
+    }
+
+    /**
+     * @dataProvider provideTestMethodGetType
+     *
+     * @param bool $givenValue
+     *
+     * @return void
+     * @throws \InvalidArgumentException
+     */
+    public function testMethodGetType($givenValue)
+    {
+        $boolean = new Boolean($givenValue);
+        $type = $boolean->getType();
+        $this->assertInstanceOf(CharacterInterface::class, $type);
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("boolean", $type->getValue());
+    }
+
+    /**
+     * @return void
+     * @throws \InvalidArgumentException
+     */
+    public function testMethodGetTypeDefault()
+    {
+        $boolean = new Boolean();
+        $type = $boolean->getType();
+        $this->assertInstanceOf(CharacterInterface::class, $type);
+        $this->assertInstanceOf(VariableInterface::class, $type);
+        $this->assertSame("boolean", $type->getValue());
     }
 
     /**
