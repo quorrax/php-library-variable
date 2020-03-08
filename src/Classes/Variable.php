@@ -26,6 +26,7 @@ use UnexpectedValueException;
 
 /**
  * @package Quorrax\Classes
+ * @deprecated
  */
 class Variable implements VariableInterface
 {
