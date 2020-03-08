@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/5.7/phpunit.xsd" bootstrap="./vendor/autoload.php">
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./vendor/quorrax/variable/src/</directory>
+            <exclude>
+                <directory suffix=".php">./tests/</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-text" target="php://stdout" showUncoveredFiles="true"/>
+    </logging>
+    <testsuites>
+        <testsuite name="Variable Test Suite">
+            <file>./tests/Classes/VariableTest.php</file>
+        </testsuite>
+        <testsuite name="Boolean Test Suite">
+            <file>./tests/Classes/VariableTest.php</file>
+        </testsuite>
+        <testsuite name="Character Test Suite">
+            <file>./tests/Classes/VariableTest.php</file>
+        </testsuite>
+        <testsuite name="Float Test Suite">
+            <file>./tests/Classes/VariableTest.php</file>
+        </testsuite>
+        <testsuite name="Integer Test Suite">
+            <file>./tests/Classes/VariableTest.php</file>
+        </testsuite>
+    </testsuites>
+</phpunit>
