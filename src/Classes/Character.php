@@ -20,7 +20,7 @@
 
 namespace Quorrax\Classes;
 
-use InvalidArgumentException;
+use Exception;
 use Quorrax\Interfaces\Variables\Character as CharacterInterface;
 use Quorrax\Traits\Variable;
 
@@ -48,14 +48,14 @@ class Character implements CharacterInterface
      * @param string $value
      *
      * @return \Quorrax\Interfaces\Variables\Character
-     * @throws \InvalidArgumentException
+     * @throws \Exception
      */
     public function setValue($value)
     {
         if (is_string($value)) {
             $this->value = $value;
         } else {
-            throw new InvalidArgumentException("The given argument for the {\$value} parameter is not a string.");
+            throw new Exception("The given argument for the {\$value} parameter is not a string.");
         }
         return $this;
     }
@@ -63,7 +63,7 @@ class Character implements CharacterInterface
     /**
      * @param string $value
      *
-     * @throws \InvalidArgumentException
+     * @throws \Exception
      */
     public function __construct($value = "")
     {
