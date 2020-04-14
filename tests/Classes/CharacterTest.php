@@ -2,6 +2,7 @@
 
 namespace Quorrax\Tests\Classes;
 
+use Exception;
 use PHPUnit_Framework_TestCase;
 use Quorrax\Classes\Character;
 use Quorrax\Interfaces\Variable as VariableInterface;
@@ -137,8 +138,12 @@ class CharacterTest extends PHPUnit_Framework_TestCase
      */
     public function testMethodGetValue($givenValue)
     {
-        $character = new Character($givenValue);
-        $this->assertSame($givenValue, $character->getValue());
+        try {
+            $character = new Character($givenValue);
+            $this->assertSame($givenValue, $character->getValue());
+        } catch (Exception $exception) {
+            $this->fail($exception->getMessage());
+        }
     }
 
     /**
@@ -146,8 +151,12 @@ class CharacterTest extends PHPUnit_Framework_TestCase
      */
     public function testMethodGetValueDefault()
     {
-        $character = new Character();
-        $this->assertSame("", $character->getValue());
+        try {
+            $character = new Character();
+            $this->assertSame("", $character->getValue());
+        } catch (Exception $exception) {
+            $this->fail($exception->getMessage());
+        }
     }
 
     /**
@@ -159,8 +168,30 @@ class CharacterTest extends PHPUnit_Framework_TestCase
      */
     public function testMethodSetValue($givenValue)
     {
+        try {
+            $character = new Character();
+            $this->assertSame($character, $character->setValue($givenValue));
+        } catch (Exception $exception) {
+            $this->fail($exception->getMessage());
+        }
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Classes\BooleanTest::provideTestMethodSetValue()
+     *
+     * @expectedException \Exception
+     * @expectedExceptionCode 0
+     * @expectedExceptionMessage The given argument for the {$value} parameter is not a string.
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     * @throws \Exception
+     */
+    public function testMethodSetValueException($givenValue)
+    {
         $character = new Character();
-        $this->assertSame($character, $character->setValue($givenValue));
+        $character->setValue($givenValue);
     }
 
     /**
