@@ -2,6 +2,7 @@
 
 namespace Quorrax\Tests\Classes;
 
+use Exception;
 use PHPUnit_Framework_TestCase;
 use Quorrax\Classes\Boolean;
 use Quorrax\Interfaces\Variable as VariableInterface;
@@ -171,8 +172,12 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      */
     public function testMethodGetValue($givenValue)
     {
-        $boolean = new Boolean($givenValue);
-        $this->assertSame($givenValue, $boolean->getValue());
+        try {
+            $boolean = new Boolean($givenValue);
+            $this->assertSame($givenValue, $boolean->getValue());
+        } catch (Exception $exception) {
+            $this->fail($exception->getMessage());
+        }
     }
 
     /**
@@ -180,8 +185,12 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      */
     public function testMethodGetValueDefault()
     {
-        $boolean = new Boolean();
-        $this->assertFalse($boolean->getValue());
+        try {
+            $boolean = new Boolean();
+            $this->assertFalse($boolean->getValue());
+        } catch (Exception $exception) {
+            $this->fail($exception->getMessage());
+        }
     }
 
     /**
