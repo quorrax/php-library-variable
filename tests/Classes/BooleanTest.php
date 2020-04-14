@@ -53,7 +53,7 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      */
     public function provideTestMethodConstruct()
     {
-        return $this->provideTestMethodSetValue();
+        return $this->getValues();
     }
 
     /**
@@ -61,7 +61,7 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      */
     public function provideTestMethodGetType()
     {
-        return $this->provideTestMethodSetValue();
+        return $this->getValues();
     }
 
     /**
@@ -69,7 +69,7 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      */
     public function provideTestMethodGetValue()
     {
-        return $this->provideTestMethodSetValue();
+        return $this->getValues();
     }
 
     /**
