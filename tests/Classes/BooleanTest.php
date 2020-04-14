@@ -106,7 +106,11 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      */
     public function testMethodConstruct($givenValue)
     {
-        $this->assertInstanceOf(Boolean::class, new Boolean($givenValue));
+        try {
+            $this->assertInstanceOf(Boolean::class, new Boolean($givenValue));
+        } catch (Exception $exception) {
+            $this->fail($exception->getMessage());
+        }
     }
 
     /**
@@ -114,13 +118,17 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      */
     public function testMethodConstructDefault()
     {
-        $this->assertInstanceOf(Boolean::class, new Boolean());
+        try {
+            $this->assertInstanceOf(Boolean::class, new Boolean());
+        } catch (Exception $exception) {
+            $this->fail($exception->getMessage());
+        }
     }
 
     /**
      * @dataProvider \Quorrax\Tests\Classes\CharacterTest::provideTestMethodConstruct
      *
-     * @expectedException \InvalidArgumentException
+     * @expectedException \Exception
      * @expectedExceptionCode 0
      * @expectedExceptionMessage The given argument for the {$value} parameter is not a boolean.
      *
