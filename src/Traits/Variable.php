@@ -20,8 +20,10 @@
 
 namespace Quorrax\Traits;
 
+use Exception;
+use Quorrax\Classes\Boolean;
 use Quorrax\Classes\Character;
-use Quorrax\Classes\Variables\Boolean;
+use Quorrax\Interfaces\Variables\Character as CharacterInterface;
 
 /**
  * @package Quorrax\Traits
@@ -39,11 +41,18 @@ trait Variable
     }
 
     /**
+     * @param string $return
+     *
      * @return \Quorrax\Interfaces\Variables\Character
+     * @throws \Exception
      */
-    public function getType()
+    public function getType($return = Character::class)
     {
-        return new Character(gettype($this->getValue()));
+        if (is_a($return, CharacterInterface::class, true)) {
+            return new $return(gettype($this->getValue()));
+        } else {
+            throw new Exception("TODO: Add some description here.");
+        }
     }
 
     /**

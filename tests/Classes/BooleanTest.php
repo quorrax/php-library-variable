@@ -5,6 +5,9 @@ namespace Quorrax\Tests\Classes;
 use Exception;
 use PHPUnit_Framework_TestCase;
 use Quorrax\Classes\Boolean;
+use Quorrax\Classes\Character;
+use Quorrax\Classes\Variables\Double;
+use Quorrax\Classes\Variables\Integer;
 use Quorrax\Interfaces\Variable as VariableInterface;
 use Quorrax\Interfaces\Variables\Boolean as BooleanInterface;
 use Quorrax\Interfaces\Variables\Character as CharacterInterface;
@@ -32,7 +35,7 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     {
         return [
             [
-                false,
+                "givenValue" => false,
             ],
         ];
     }
@@ -44,7 +47,7 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     {
         return [
             [
-                true,
+                "givenValue" => true,
             ],
         ];
     }
@@ -60,9 +63,89 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     /**
      * @return array
      */
-    public function provideTestMethodGetType()
+    public function provideTestMethodGetTypeCustomReturnCustom()
+    {
+        return [
+            [
+                "givenValue" => false,
+                "givenReturn" => Character::class,
+            ],
+            [
+                "givenValue" => true,
+                "givenReturn" => Character::class,
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function provideTestMethodGetTypeCustomReturnCustomException()
+    {
+        return [
+            [
+                "givenValue" => false,
+                "givenReturn" => Boolean::class,
+            ],
+            [
+                "givenValue" => false,
+                "givenReturn" => Double::class,
+            ],
+            [
+                "givenValue" => false,
+                "givenReturn" => Integer::class,
+            ],
+            [
+                "givenValue" => true,
+                "givenReturn" => Boolean::class,
+            ],
+            [
+                "givenValue" => true,
+                "givenReturn" => Double::class,
+            ],
+            [
+                "givenValue" => true,
+                "givenReturn" => Integer::class,
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function provideTestMethodGetTypeCustomReturnDefault()
     {
         return $this->getValues();
+    }
+
+    /**
+     * @return array
+     */
+    public function provideTestMethodGetTypeDefaultReturnCustom()
+    {
+        return [
+            [
+                "givenReturn" => Character::class,
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function provideTestMethodGetTypeDefaultReturnCustomException()
+    {
+        return [
+            [
+                "givenReturn" => Boolean::class,
+            ],
+            [
+                "givenReturn" => Double::class,
+            ],
+            [
+                "givenReturn" => Integer::class,
+            ],
+        ];
     }
 
     /**
@@ -135,6 +218,7 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      * @param mixed $givenValue
      *
      * @return void
+     * @throws \Exception
      */
     public function testMethodConstructException($givenValue)
     {
@@ -142,33 +226,121 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider provideTestMethodGetType
+     * @dataProvider provideTestMethodGetTypeCustomReturnCustom
+     *
+     * @param bool $givenValue
+     * @param string $givenReturn
+     *
+     * @return void
+     */
+    public function testMethodGetTypeCustomReturnCustom($givenValue, $givenReturn)
+    {
+        try {
+            $boolean = new Boolean($givenValue);
+            $type = $boolean->getType($givenReturn);
+            $this->assertInstanceOf($givenReturn, $type);
+            $this->assertInstanceOf(CharacterInterface::class, $type);
+            $this->assertInstanceOf(VariableInterface::class, $type);
+            $this->assertSame("boolean", $type->getValue());
+        } catch (Exception $exception) {
+            $this->fail($exception->getMessage());
+        }
+    }
+
+    /**
+     * @dataProvider provideTestMethodGetTypeCustomReturnCustomException
+     *
+     * @expectedException \Exception
+     * @expectedExceptionCode 0
+     * @expectedExceptionMessage TODO: Add some description here.
+     *
+     * @param bool $givenValue
+     * @param string $givenReturn
+     *
+     * @return void
+     * @throws \Exception
+     */
+    public function testMethodGetTypeCustomReturnCustomException($givenValue, $givenReturn)
+    {
+        $boolean = new Boolean($givenValue);
+        $boolean->getType($givenReturn);
+    }
+
+    /**
+     * @dataProvider provideTestMethodGetTypeCustomReturnDefault
      *
      * @param bool $givenValue
      *
      * @return void
-     * @throws \InvalidArgumentException
      */
-    public function testMethodGetType($givenValue)
+    public function testMethodGetTypeCustomReturnDefault($givenValue)
     {
-        $boolean = new Boolean($givenValue);
-        $type = $boolean->getType();
-        $this->assertInstanceOf(CharacterInterface::class, $type);
-        $this->assertInstanceOf(VariableInterface::class, $type);
-        $this->assertSame("boolean", $type->getValue());
+        try {
+            $boolean = new Boolean($givenValue);
+            $type = $boolean->getType();
+            $this->assertInstanceOf(Character::class, $type);
+            $this->assertInstanceOf(CharacterInterface::class, $type);
+            $this->assertInstanceOf(VariableInterface::class, $type);
+            $this->assertSame("boolean", $type->getValue());
+        } catch (Exception $exception) {
+            $this->fail($exception->getMessage());
+        }
+    }
+
+    /**
+     * @dataProvider provideTestMethodGetTypeDefaultReturnCustom
+     *
+     * @param string $givenReturn
+     *
+     * @return void
+     */
+    public function testMethodGetTypeDefaultReturnCustom($givenReturn)
+    {
+        try {
+            $boolean = new Boolean();
+            $type = $boolean->getType($givenReturn);
+            $this->assertInstanceOf($givenReturn, $type);
+            $this->assertInstanceOf(CharacterInterface::class, $type);
+            $this->assertInstanceOf(VariableInterface::class, $type);
+            $this->assertSame("boolean", $type->getValue());
+        } catch (Exception $exception) {
+            $this->fail($exception->getMessage());
+        }
+    }
+
+    /**
+     * @dataProvider provideTestMethodGetTypeDefaultReturnCustomException
+     *
+     * @expectedException \Exception
+     * @expectedExceptionCode 0
+     * @expectedExceptionMessage TODO: Add some description here.
+     *
+     * @param string $givenReturn
+     *
+     * @return void
+     * @throws \Exception
+     */
+    public function testMethodGetTypeDefaultReturnCustomException($givenReturn)
+    {
+        $boolean = new Boolean();
+        $boolean->getType($givenReturn);
     }
 
     /**
      * @return void
-     * @throws \InvalidArgumentException
      */
-    public function testMethodGetTypeDefault()
+    public function testMethodGetTypeDefaultReturnDefault()
     {
-        $boolean = new Boolean();
-        $type = $boolean->getType();
-        $this->assertInstanceOf(CharacterInterface::class, $type);
-        $this->assertInstanceOf(VariableInterface::class, $type);
-        $this->assertSame("boolean", $type->getValue());
+        try {
+            $boolean = new Boolean();
+            $type = $boolean->getType();
+            $this->assertInstanceOf(Character::class, $type);
+            $this->assertInstanceOf(CharacterInterface::class, $type);
+            $this->assertInstanceOf(VariableInterface::class, $type);
+            $this->assertSame("boolean", $type->getValue());
+        } catch (Exception $exception) {
+            $this->fail($exception->getMessage());
+        }
     }
 
     /**
@@ -228,6 +400,7 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      * @param mixed $givenValue
      *
      * @return void
+     * @throws \Exception
      */
     public function testMethodSetValueException($givenValue)
     {
