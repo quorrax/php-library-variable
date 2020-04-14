@@ -4,7 +4,10 @@ namespace Quorrax\Tests\Classes;
 
 use Exception;
 use PHPUnit_Framework_TestCase;
+use Quorrax\Classes\Boolean;
 use Quorrax\Classes\Character;
+use Quorrax\Classes\Variables\Double;
+use Quorrax\Classes\Variables\Integer;
 use Quorrax\Interfaces\Variable as VariableInterface;
 use Quorrax\Interfaces\Variables\Character as CharacterInterface;
 
@@ -31,10 +34,10 @@ class CharacterTest extends PHPUnit_Framework_TestCase
     {
         return [
             [
-                "",
+                "givenValue" => "",
             ],
             [
-                "0",
+                "givenValue" => "0",
             ],
         ];
     }
@@ -46,7 +49,7 @@ class CharacterTest extends PHPUnit_Framework_TestCase
     {
         return [
             [
-                "string",
+                "givenValue" => "string",
             ],
         ];
     }
@@ -62,9 +65,65 @@ class CharacterTest extends PHPUnit_Framework_TestCase
     /**
      * @return array
      */
-    public function provideTestMethodGetType()
+    public function provideTestMethodGetTypeCustomReturnCustom()
+    {
+        return [
+            [
+                "givenValue" => "",
+                "givenReturn" => Character::class,
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function provideTestMethodGetTypeCustomReturnCustomException()
+    {
+        return [
+            [
+                "givenValue" => "",
+                "givenReturn" => Boolean::class,
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function provideTestMethodGetTypeCustomReturnDefault()
     {
         return $this->getValues();
+    }
+
+    /**
+     * @return array
+     */
+    public function provideTestMethodGetTypeDefaultReturnCustom()
+    {
+        return [
+            [
+                "givenReturn" => Character::class,
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function provideTestMethodGetTypeDefaultReturnCustomException()
+    {
+        return [
+            [
+                "givenReturn" => Boolean::class,
+            ],
+            [
+                "givenReturn" => Double::class,
+            ],
+            [
+                "givenReturn" => Integer::class,
+            ],
+        ];
     }
 
     /**
@@ -100,33 +159,123 @@ class CharacterTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider provideTestMethodGetType
+     * @dataProvider provideTestMethodGetTypeCustomReturnCustom
+     *
+     * @param string $givenValue
+     * @param string $givenReturn
+     *
+     * @return void
+     */
+    public function testMethodGetTypeCustomReturnCustom($givenValue, $givenReturn)
+    {
+        try {
+            $character = new Character($givenValue);
+            $type = $character->getType($givenReturn);
+            $this->assertInstanceOf($givenReturn, $type);
+            $this->assertInstanceOf(CharacterInterface::class, $type);
+            $this->assertInstanceOf(VariableInterface::class, $type);
+            $this->assertSame("string", $type->getValue());
+        } catch (Exception $exception) {
+            $this->fail($exception->getMessage());
+        }
+    }
+
+    /**
+     * @dataProvider provideTestMethodGetTypeCustomReturnCustomException
+     *
+     * @expectedException Exception
+     * @expectedExceptionCode 0
+     * @expectedExceptionMessage TODO: Add some description here.
+     *
+     * @param string $givenValue
+     * @param string $givenReturn
+     *
+     * @return void
+     * @throws \Exception
+     */
+    public function testMethodGetTypeCustomReturnCustomException($givenValue, $givenReturn)
+    {
+        $character = new Character($givenValue);
+        $character->getType($givenReturn);
+    }
+
+    /**
+     * @dataProvider provideTestMethodGetTypeCustomReturnDefault
      *
      * @param string $givenValue
      *
      * @return void
      * @throws \InvalidArgumentException
      */
-    public function testMethodGetType($givenValue)
+    public function testMethodGetTypeCustomReturnDefault($givenValue)
     {
-        $character = new Character($givenValue);
-        $type = $character->getType();
-        $this->assertInstanceOf(CharacterInterface::class, $type);
-        $this->assertInstanceOf(VariableInterface::class, $type);
-        $this->assertSame("string", $type->getValue());
+        try {
+            $character = new Character($givenValue);
+            $type = $character->getType();
+            $this->assertInstanceOf(Character::class, $type);
+            $this->assertInstanceOf(CharacterInterface::class, $type);
+            $this->assertInstanceOf(VariableInterface::class, $type);
+            $this->assertSame("string", $type->getValue());
+        } catch (Exception $exception) {
+            $this->fail($exception->getMessage());
+        }
+    }
+
+    /**
+     * @dataProvider provideTestMethodGetTypeDefaultReturnCustom
+     *
+     * @param string $givenReturn
+     *
+     * @return void
+     */
+    public function testMethodGetTypeDefaultReturnCustom($givenReturn)
+    {
+        try {
+            $character = new Character();
+            $type = $character->getType($givenReturn);
+            $this->assertInstanceOf($givenReturn, $type);
+            $this->assertInstanceOf(CharacterInterface::class, $type);
+            $this->assertInstanceOf(VariableInterface::class, $type);
+            $this->assertSame("string", $type->getValue());
+        } catch (Exception $exception) {
+            $this->fail($exception->getMessage());
+        }
+    }
+
+    /**
+     * @dataProvider provideTestMethodGetTypeDefaultReturnCustomException
+     *
+     * @expectedException Exception
+     * @expectedExceptionCode 0
+     * @expectedExceptionMessage TODO: Add some description here.
+     *
+     * @param string $givenReturn
+     *
+     * @return void
+     * @throws \Exception
+     */
+    public function testMethodGetTypeDefaultReturnCustomException($givenReturn)
+    {
+        $character = new Character();
+        $character->getType($givenReturn);
     }
 
     /**
      * @return void
      * @throws \InvalidArgumentException
      */
-    public function testMethodGetTypeDefault()
+    public function testMethodGetTypeDefaultReturnDefault()
     {
-        $character = new Character();
-        $type = $character->getType();
-        $this->assertInstanceOf(CharacterInterface::class, $type);
-        $this->assertInstanceOf(VariableInterface::class, $type);
-        $this->assertSame("string", $type->getValue());
+        try {
+            $character = new Character();
+            $type = $character->getType();
+            $this->assertInstanceOf(Character::class, $type);
+            $this->assertInstanceOf(CharacterInterface::class, $type);
+            $this->assertInstanceOf(VariableInterface::class, $type);
+            $this->assertSame("string", $type->getValue());
+        } catch (Exception $exception) {
+            $this->fail($exception->getMessage());
+        }
     }
 
     /**
