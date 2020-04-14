@@ -202,14 +202,18 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      */
     public function testMethodSetValue($givenValue)
     {
-        $boolean = new Boolean();
-        $this->assertSame($boolean, $boolean->setValue($givenValue));
+        try {
+            $boolean = new Boolean();
+            $this->assertSame($boolean, $boolean->setValue($givenValue));
+        } catch (Exception $exception) {
+            $this->fail($exception->getMessage());
+        }
     }
 
     /**
      * @dataProvider \Quorrax\Tests\Classes\CharacterTest::provideTestMethodSetValue()
      *
-     * @expectedException \InvalidArgumentException
+     * @expectedException \Exception
      * @expectedExceptionCode 0
      * @expectedExceptionMessage The given argument for the {$value} parameter is not a boolean.
      *
