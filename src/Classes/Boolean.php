@@ -20,7 +20,7 @@
 
 namespace Quorrax\Classes;
 
-use InvalidArgumentException;
+use Exception;
 use Quorrax\Interfaces\Variables\Boolean as BooleanInterface;
 use Quorrax\Traits\Variable;
 
@@ -48,14 +48,14 @@ class Boolean implements BooleanInterface
      * @param bool $value
      *
      * @return \Quorrax\Interfaces\Variables\Boolean
-     * @throws \InvalidArgumentException
+     * @throws \Exception
      */
     public function setValue($value)
     {
         if (is_bool($value)) {
             $this->value = $value;
         } else {
-            throw new InvalidArgumentException("The given argument for the {\$value} parameter is not a boolean.");
+            throw new Exception("The given argument for the {\$value} parameter is not a boolean.");
         }
         return $this;
     }
@@ -63,7 +63,7 @@ class Boolean implements BooleanInterface
     /**
      * @param bool $value
      *
-     * @throws \InvalidArgumentException
+     * @throws \Exception
      */
     public function __construct($value = false)
     {
