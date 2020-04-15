@@ -159,6 +159,53 @@ class CharacterTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @dataProvider provideTestMethodConstruct
+     *
+     * @param string $givenValue
+     *
+     * @return void
+     */
+    public function testMethodConstruct($givenValue)
+    {
+        try {
+            $this->assertInstanceOf(Character::class, new Character($givenValue));
+        } catch (Exception $exception) {
+            $this->fail($exception->getMessage());
+        }
+    }
+
+    /**
+     * @return void
+     */
+    public function testMethodConstructDefault()
+    {
+        try {
+            $this->assertInstanceOf(Character::class, new Character());
+        } catch (Exception $exception) {
+            $this->fail($exception->getMessage());
+        }
+    }
+
+    /**
+     * @dataProvider \Quorrax\Tests\Classes\BooleanTest::provideTestMethodConstruct()
+     * @dataProvider \Quorrax\Tests\Classes\DoubleTest::provideTestMethodConstruct()
+     * @dataProvider \Quorrax\Tests\Classes\IntegerTest::provideTestMethodConstruct()
+     *
+     * @expectedException \Exception
+     * @expectedExceptionCode 0
+     * @expectedExceptionMessage The given argument for the {$value} parameter is not a string.
+     *
+     * @param mixed $givenValue
+     *
+     * @return void
+     * @throws \Exception
+     */
+    public function testMethodConstructException($givenValue)
+    {
+        new Character($givenValue);
+    }
+
+    /**
      * @dataProvider provideTestMethodGetTypeCustomReturnCustom
      *
      * @param string $givenValue
@@ -183,7 +230,7 @@ class CharacterTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider provideTestMethodGetTypeCustomReturnCustomException
      *
-     * @expectedException Exception
+     * @expectedException \Exception
      * @expectedExceptionCode 0
      * @expectedExceptionMessage TODO: Add some description here.
      *
@@ -205,7 +252,6 @@ class CharacterTest extends PHPUnit_Framework_TestCase
      * @param string $givenValue
      *
      * @return void
-     * @throws \InvalidArgumentException
      */
     public function testMethodGetTypeCustomReturnDefault($givenValue)
     {
@@ -245,7 +291,7 @@ class CharacterTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider provideTestMethodGetTypeDefaultReturnCustomException
      *
-     * @expectedException Exception
+     * @expectedException \Exception
      * @expectedExceptionCode 0
      * @expectedExceptionMessage TODO: Add some description here.
      *
@@ -262,7 +308,6 @@ class CharacterTest extends PHPUnit_Framework_TestCase
 
     /**
      * @return void
-     * @throws \InvalidArgumentException
      */
     public function testMethodGetTypeDefaultReturnDefault()
     {
@@ -327,6 +372,8 @@ class CharacterTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider \Quorrax\Tests\Classes\BooleanTest::provideTestMethodSetValue()
+     * @dataProvider \Quorrax\Tests\Classes\DoubleTest::provideTestMethodSetValue()
+     * @dataProvider \Quorrax\Tests\Classes\IntegerTest::provideTestMethodSetValue()
      *
      * @expectedException \Exception
      * @expectedExceptionCode 0
