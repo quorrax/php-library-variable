@@ -48,7 +48,7 @@ class Double implements DoubleInterface
      * @param float $value
      *
      * @return \Quorrax\Interfaces\Variables\Double
-     * @throws \Exception()
+     * @throws \Exception
      */
     public function setValue($value)
     {
