@@ -211,6 +211,7 @@ class DoubleTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider \Quorrax\Tests\Classes\BooleanTest::provideTestMethodConstruct()
      * @dataProvider \Quorrax\Tests\Classes\CharacterTest::provideTestMethodConstruct()
+     * @dataProvider \Quorrax\Tests\Classes\IntegerTest::provideTestMethodConstruct()
      *
      * @expectedException \Exception
      * @expectedExceptionCode 0
@@ -394,6 +395,7 @@ class DoubleTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider \Quorrax\Tests\Classes\BooleanTest::provideTestMethodSetValue()
      * @dataProvider \Quorrax\Tests\Classes\CharacterTest::provideTestMethodSetValue()
+     * @dataProvider \Quorrax\Tests\Classes\IntegerTest::provideTestMethodSetValue()
      *
      * @expectedException \Exception
      * @expectedExceptionCode 0
