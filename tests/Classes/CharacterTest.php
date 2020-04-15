@@ -6,8 +6,8 @@ use Exception;
 use PHPUnit_Framework_TestCase;
 use Quorrax\Classes\Boolean;
 use Quorrax\Classes\Character;
-use Quorrax\Classes\Variables\Double;
-use Quorrax\Classes\Variables\Integer;
+use Quorrax\Classes\Double;
+use Quorrax\Classes\Integer;
 use Quorrax\Interfaces\Variable as VariableInterface;
 use Quorrax\Interfaces\Variables\Character as CharacterInterface;
 

@@ -4,22 +4,22 @@
 
 ### Classes ###
 
-+ Added the `Quorrax\Classes\Variables\Boolean` class.
++ Added the `Quorrax\Classes\Boolean` class.
     + Added the `getValue()` public method.
     + Added the `setValue()` public method.
     + Added the `__construct()` public method.
     + Added the `value` private property.
-+ Added the `Quorrax\Classes\Variables\Character` class.
++ Added the `Quorrax\Classes\Character` class.
     + Added the `getValue()` public method.
     + Added the `setValue()` public method.
     + Added the `__construct()` public method.
     + Added the `value` private property.
-+ Added the `Quorrax\Classes\Variables\Float` class.
++ Added the `Quorrax\Classes\Float` class.
     + Added the `getValue()` public method.
     + Added the `setValue()` public method.
     + Added the `__construct()` public method.
     + Added the `value` private property.
-+ Added the `Quorrax\Classes\Variables\Integer` class.
++ Added the `Quorrax\Classes\Integer` class.
     + Added the `getValue()` public method.
     + Added the `setValue()` public method.
     + Added the `__construct()` public method.

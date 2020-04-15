@@ -18,7 +18,7 @@
  * along with quorrax/variable. If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Quorrax\Classes\Variables;
+namespace Quorrax\Classes;
 
 use InvalidArgumentException;
 use Quorrax\Interfaces\Variables\Double as DoubleInterface;
