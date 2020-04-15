@@ -209,7 +209,9 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider \Quorrax\Tests\Classes\CharacterTest::provideTestMethodConstruct
+     * @dataProvider \Quorrax\Tests\Classes\CharacterTest::provideTestMethodConstruct()
+     * @dataProvider \Quorrax\Tests\Classes\DoubleTest::provideTestMethodConstruct()
+     * @dataProvider \Quorrax\Tests\Classes\IntegerTest::provideTestMethodConstruct()
      *
      * @expectedException \Exception
      * @expectedExceptionCode 0
@@ -392,6 +394,8 @@ class BooleanTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider \Quorrax\Tests\Classes\CharacterTest::provideTestMethodSetValue()
+     * @dataProvider \Quorrax\Tests\Classes\DoubleTest::provideTestMethodSetValue()
+     * @dataProvider \Quorrax\Tests\Classes\IntegerTest::provideTestMethodSetValue()
      *
      * @expectedException \Exception
      * @expectedExceptionCode 0
