@@ -20,7 +20,7 @@
 
 namespace Quorrax\Classes;
 
-use InvalidArgumentException;
+use Exception;
 use Quorrax\Interfaces\Variables\Double as DoubleInterface;
 use Quorrax\Traits\Variable;
 
@@ -32,12 +32,12 @@ class Double implements DoubleInterface
     use Variable;
 
     /**
-     * @var Double
+     * @var float
      */
     private $value;
 
     /**
-     * @return Double
+     * @return float
      */
     public function getValue()
     {
@@ -45,23 +45,25 @@ class Double implements DoubleInterface
     }
 
     /**
-     * @param Double $value
+     * @param float $value
      *
      * @return \Quorrax\Interfaces\Variables\Double
-     * @throws \InvalidArgumentException
+     * @throws \Exception()
      */
     public function setValue($value)
     {
         if (is_float($value)) {
             $this->value = $value;
         } else {
-            throw new InvalidArgumentException("The given argument for the {\$value} parameter is not a float.");
+            throw new Exception("The given argument for the {\$value} parameter is not a float.");
         }
         return $this;
     }
 
     /**
-     * @param Double $value
+     * @param float $value
+     *
+     * @throws \Exception
      */
     public function __construct($value = 0.0)
     {
