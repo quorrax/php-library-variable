@@ -20,7 +20,7 @@
 
 namespace Quorrax\Classes;
 
-use InvalidArgumentException;
+use Exception;
 use Quorrax\Interfaces\Variables\Integer as IntegerInterface;
 use Quorrax\Traits\Variable;
 
@@ -48,20 +48,22 @@ class Integer implements IntegerInterface
      * @param int $value
      *
      * @return \Quorrax\Interfaces\Variables\Integer
-     * @throws \InvalidArgumentException
+     * @throws \Exception()
      */
     public function setValue($value)
     {
         if (is_int($value)) {
             $this->value = $value;
         } else {
-            throw new InvalidArgumentException("The given argument for the {\$value} property is not an integer.");
+            throw new Exception("The given argument for the {\$value} property is not an integer.");
         }
         return $this;
     }
 
     /**
      * @param int $value
+     *
+     * @throws \Exception
      */
     public function __construct($value = 0)
     {
