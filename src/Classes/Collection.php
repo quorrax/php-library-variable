@@ -35,7 +35,7 @@ class Collection implements CollectionInterface
     /**
      * @var array
      */
-    private $value;
+    private $value = [];
 
     /**
      * @param mixed $value
@@ -52,11 +52,11 @@ class Collection implements CollectionInterface
             case "boolean":
                 $class = Boolean::class;
                 break;
-            case "integer":
-                $class = Integer::class;
-                break;
             case "double":
                 $class = Double::class;
+                break;
+            case "integer":
+                $class = Integer::class;
                 break;
             case "string":
                 $class = Character::class;
