@@ -9,13 +9,13 @@ use Quorrax\Classes\Character;
 use Quorrax\Classes\Double;
 use Quorrax\Classes\Integer;
 use Quorrax\Interfaces\Variable as VariableInterface;
-use Quorrax\Interfaces\Variables\Boolean as BooleanInterface;
 use Quorrax\Interfaces\Variables\Character as CharacterInterface;
+use Quorrax\Interfaces\Variables\Double as DoubleInterface;
 
 /**
  * @package Quorrax\Tests\Classes
  */
-class BooleanTest extends PHPUnit_Framework_TestCase
+class DoubleTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @return array
@@ -35,7 +35,7 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     {
         return [
             [
-                "givenValue" => false,
+                "givenValue" => 0.0,
             ],
         ];
     }
@@ -47,7 +47,7 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     {
         return [
             [
-                "givenValue" => true,
+                "givenValue" => 0.1,
             ],
         ];
     }
@@ -67,11 +67,11 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     {
         return [
             [
-                "givenValue" => false,
+                "givenValue" => 0.0,
                 "givenReturn" => Character::class,
             ],
             [
-                "givenValue" => true,
+                "givenValue" => 0.1,
                 "givenReturn" => Character::class,
             ],
         ];
@@ -84,27 +84,27 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     {
         return [
             [
-                "givenValue" => false,
+                "givenValue" => 0.0,
                 "givenReturn" => Boolean::class,
             ],
             [
-                "givenValue" => false,
+                "givenValue" => 0.0,
                 "givenReturn" => Double::class,
             ],
             [
-                "givenValue" => false,
+                "givenValue" => 0.0,
                 "givenReturn" => Integer::class,
             ],
             [
-                "givenValue" => true,
+                "givenValue" => 0.1,
                 "givenReturn" => Boolean::class,
             ],
             [
-                "givenValue" => true,
+                "givenValue" => 0.1,
                 "givenReturn" => Double::class,
             ],
             [
-                "givenValue" => true,
+                "givenValue" => 0.1,
                 "givenReturn" => Integer::class,
             ],
         ];
@@ -169,7 +169,7 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      */
     public function testImplementationBoolean()
     {
-        $this->assertInstanceOf(BooleanInterface::class, new Boolean());
+        $this->assertInstanceOf(DoubleInterface::class, new Double());
     }
 
     /**
@@ -177,20 +177,20 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      */
     public function testImplementationVariable()
     {
-        $this->assertInstanceOf(VariableInterface::class, new Boolean());
+        $this->assertInstanceOf(VariableInterface::class, new Double());
     }
 
     /**
      * @dataProvider provideTestMethodConstruct
      *
-     * @param bool $givenValue
+     * @param float $givenValue
      *
      * @return void
      */
     public function testMethodConstruct($givenValue)
     {
         try {
-            $this->assertInstanceOf(Boolean::class, new Boolean($givenValue));
+            $this->assertInstanceOf(Double::class, new Double($givenValue));
         } catch (Exception $exception) {
             $this->fail($exception->getMessage());
         }
@@ -202,20 +202,20 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     public function testMethodConstructDefault()
     {
         try {
-            $this->assertInstanceOf(Boolean::class, new Boolean());
+            $this->assertInstanceOf(Double::class, new Double());
         } catch (Exception $exception) {
             $this->fail($exception->getMessage());
         }
     }
 
     /**
+     * @dataProvider \Quorrax\Tests\Classes\BooleanTest::provideTestMethodConstruct()
      * @dataProvider \Quorrax\Tests\Classes\CharacterTest::provideTestMethodConstruct()
-     * @dataProvider \Quorrax\Tests\Classes\DoubleTest::provideTestMethodConstruct()
      * @dataProvider \Quorrax\Tests\Classes\IntegerTest::provideTestMethodConstruct()
      *
      * @expectedException \Exception
      * @expectedExceptionCode 0
-     * @expectedExceptionMessage The given argument for the {$value} parameter is not a boolean.
+     * @expectedExceptionMessage The given argument for the {$value} parameter is not a float.
      *
      * @param mixed $givenValue
      *
@@ -224,13 +224,13 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      */
     public function testMethodConstructException($givenValue)
     {
-        new Boolean($givenValue);
+        new Double($givenValue);
     }
 
     /**
      * @dataProvider provideTestMethodGetTypeCustomReturnCustom
      *
-     * @param bool $givenValue
+     * @param float $givenValue
      * @param string $givenReturn
      *
      * @return void
@@ -238,12 +238,12 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     public function testMethodGetTypeCustomReturnCustom($givenValue, $givenReturn)
     {
         try {
-            $boolean = new Boolean($givenValue);
+            $boolean = new Double($givenValue);
             $type = $boolean->getType($givenReturn);
             $this->assertInstanceOf($givenReturn, $type);
             $this->assertInstanceOf(CharacterInterface::class, $type);
             $this->assertInstanceOf(VariableInterface::class, $type);
-            $this->assertSame("boolean", $type->getValue());
+            $this->assertSame("double", $type->getValue());
         } catch (Exception $exception) {
             $this->fail($exception->getMessage());
         }
@@ -256,7 +256,7 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      * @expectedExceptionCode 0
      * @expectedExceptionMessage TODO: Add some description here.
      *
-     * @param bool $givenValue
+     * @param float $givenValue
      * @param string $givenReturn
      *
      * @return void
@@ -264,26 +264,26 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      */
     public function testMethodGetTypeCustomReturnCustomException($givenValue, $givenReturn)
     {
-        $boolean = new Boolean($givenValue);
+        $boolean = new Double($givenValue);
         $boolean->getType($givenReturn);
     }
 
     /**
      * @dataProvider provideTestMethodGetTypeCustomReturnDefault
      *
-     * @param bool $givenValue
+     * @param float $givenValue
      *
      * @return void
      */
     public function testMethodGetTypeCustomReturnDefault($givenValue)
     {
         try {
-            $boolean = new Boolean($givenValue);
+            $boolean = new Double($givenValue);
             $type = $boolean->getType();
             $this->assertInstanceOf(Character::class, $type);
             $this->assertInstanceOf(CharacterInterface::class, $type);
             $this->assertInstanceOf(VariableInterface::class, $type);
-            $this->assertSame("boolean", $type->getValue());
+            $this->assertSame("double", $type->getValue());
         } catch (Exception $exception) {
             $this->fail($exception->getMessage());
         }
@@ -299,12 +299,12 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     public function testMethodGetTypeDefaultReturnCustom($givenReturn)
     {
         try {
-            $boolean = new Boolean();
+            $boolean = new Double();
             $type = $boolean->getType($givenReturn);
             $this->assertInstanceOf($givenReturn, $type);
             $this->assertInstanceOf(CharacterInterface::class, $type);
             $this->assertInstanceOf(VariableInterface::class, $type);
-            $this->assertSame("boolean", $type->getValue());
+            $this->assertSame("double", $type->getValue());
         } catch (Exception $exception) {
             $this->fail($exception->getMessage());
         }
@@ -324,7 +324,7 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      */
     public function testMethodGetTypeDefaultReturnCustomException($givenReturn)
     {
-        $boolean = new Boolean();
+        $boolean = new Double();
         $boolean->getType($givenReturn);
     }
 
@@ -334,12 +334,12 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     public function testMethodGetTypeDefaultReturnDefault()
     {
         try {
-            $boolean = new Boolean();
+            $boolean = new Double();
             $type = $boolean->getType();
             $this->assertInstanceOf(Character::class, $type);
             $this->assertInstanceOf(CharacterInterface::class, $type);
             $this->assertInstanceOf(VariableInterface::class, $type);
-            $this->assertSame("boolean", $type->getValue());
+            $this->assertSame("double", $type->getValue());
         } catch (Exception $exception) {
             $this->fail($exception->getMessage());
         }
@@ -348,14 +348,14 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider provideTestMethodGetValue
      *
-     * @param bool $givenValue
+     * @param float $givenValue
      *
      * @return void
      */
     public function testMethodGetValue($givenValue)
     {
         try {
-            $boolean = new Boolean($givenValue);
+            $boolean = new Double($givenValue);
             $this->assertSame($givenValue, $boolean->getValue());
         } catch (Exception $exception) {
             $this->fail($exception->getMessage());
@@ -368,8 +368,8 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     public function testMethodGetValueDefault()
     {
         try {
-            $boolean = new Boolean();
-            $this->assertFalse($boolean->getValue());
+            $boolean = new Double();
+            $this->assertSame(0.0, $boolean->getValue());
         } catch (Exception $exception) {
             $this->fail($exception->getMessage());
         }
@@ -378,14 +378,14 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider provideTestMethodSetValue
      *
-     * @param bool $givenValue
+     * @param float $givenValue
      *
      * @return void
      */
     public function testMethodSetValue($givenValue)
     {
         try {
-            $boolean = new Boolean();
+            $boolean = new Double();
             $this->assertSame($boolean, $boolean->setValue($givenValue));
         } catch (Exception $exception) {
             $this->fail($exception->getMessage());
@@ -393,13 +393,13 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @dataProvider \Quorrax\Tests\Classes\BooleanTest::provideTestMethodSetValue()
      * @dataProvider \Quorrax\Tests\Classes\CharacterTest::provideTestMethodSetValue()
-     * @dataProvider \Quorrax\Tests\Classes\DoubleTest::provideTestMethodSetValue()
      * @dataProvider \Quorrax\Tests\Classes\IntegerTest::provideTestMethodSetValue()
      *
      * @expectedException \Exception
      * @expectedExceptionCode 0
-     * @expectedExceptionMessage The given argument for the {$value} parameter is not a boolean.
+     * @expectedExceptionMessage The given argument for the {$value} parameter is not a float.
      *
      * @param mixed $givenValue
      *
@@ -408,7 +408,7 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      */
     public function testMethodSetValueException($givenValue)
     {
-        $boolean = new Boolean();
+        $boolean = new Double();
         $boolean->setValue($givenValue);
     }
 
@@ -417,6 +417,6 @@ class BooleanTest extends PHPUnit_Framework_TestCase
      */
     public function testPropertyValue()
     {
-        $this->assertClassHasAttribute("value", Boolean::class);
+        $this->assertClassHasAttribute("value", Double::class);
     }
 }
