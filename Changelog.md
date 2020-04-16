@@ -14,6 +14,12 @@
     + Added the `setValue()` public method.
     + Added the `__construct()` public method.
     + Added the `value` private property.
++ Added the `Quorrax\Classes\Collection` class.
+    + Added the `cast()` private method.
+    + Added the `getValue()` public method.
+    + Added the `setValue()` public method.
+    + Added the `__construct()` public method.
+    + Added the `value` private property.
 + Added the `Quorrax\Classes\Float` class.
     + Added the `getValue()` public method.
     + Added the `setValue()` public method.
@@ -32,6 +38,10 @@
     + Added the `setValue()` public method.
     + Added the `__construct()` public method.
 + Added the `Quorrax\Interfaces\Variables\Character` interface.
+    + Added the `getValue()` public method.
+    + Added the `setValue()` public method.
+    + Added the `__construct()` public method.
++ Added the `Quorrax\Interfaces\Variables\Collection` interface.
     + Added the `getValue()` public method.
     + Added the `setValue()` public method.
     + Added the `__construct()` public method.
@@ -59,6 +69,27 @@
     + Added the `isResource()` public method.
     + Added the `isScalar()` public method.
     + Added the `isString()` public method.
+
+## Removed ##
+
+### Classes ###
+
++ Removed the `Quorrax\Classes\Variable` class.
+    + Removed the `is()` private method.
+    + Removed the `getType()` public method.
+    + Removed the `getValue()` public method.
+    + Removed the `isArray()` public method.
+    + Removed the `isBoolean()` public method.
+    + Removed the `isEmpty()` public method.
+    + Removed the `isFloat()` public method.
+    + Removed the `isInteger()` public method.
+    + Removed the `isNumeric()` public method.
+    + Removed the `isObject()` public method.
+    + Removed the `isResource()` public method.
+    + Removed the `isScalar()` public method.
+    + Removed the `isString()` public method.
+    + Removed the `setValue()` public method.
+    + Removed the `value` private property.
 
 # 1.3.1 #
 
