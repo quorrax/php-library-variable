@@ -8,8 +8,11 @@ stages:
 
 .test:
     before_script:
+        - composer self-update
         - composer install --no-progress
     script:
+        - composer check
+        - composer check-tests
         - composer test
     stage: test
 
