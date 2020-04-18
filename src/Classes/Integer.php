@@ -34,7 +34,7 @@ class Integer implements IntegerInterface
     /**
      * @var int
      */
-    private $value;
+    protected $value;
 
     /**
      * @return int

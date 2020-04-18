@@ -34,7 +34,7 @@ class Character implements CharacterInterface
     /**
      * @var string
      */
-    private $value;
+    protected $value;
 
     /**
      * @return string

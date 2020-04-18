@@ -34,7 +34,7 @@ class Boolean implements BooleanInterface
     /**
      * @var bool
      */
-    private $value;
+    protected $value;
 
     /**
      * @return bool
