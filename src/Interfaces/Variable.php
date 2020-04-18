@@ -28,16 +28,6 @@ interface Variable
     /**
      * @return \Quorrax\Interfaces\Variable
      */
-    public function getType();
-
-    /**
-     * @return mixed
-     */
-    public function getValue();
-
-    /**
-     * @return \Quorrax\Interfaces\Variable
-     */
     public function isArray();
 
     /**

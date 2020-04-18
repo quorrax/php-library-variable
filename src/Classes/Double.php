@@ -34,7 +34,7 @@ class Double implements DoubleInterface
     /**
      * @var float
      */
-    private $value;
+    protected $value;
 
     /**
      * @return float

@@ -35,7 +35,7 @@ class Collection implements CollectionInterface
     /**
      * @var array
      */
-    private $value = [];
+    protected $value = [];
 
     /**
      * @param mixed $value

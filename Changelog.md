@@ -1,3 +1,22 @@
+# 2.1.0 #
+
+## Changed ##
+
+### Classes ###
+
++ Changed the `Quorrax\Classes\Boolean` class' `value` property's visibility from `private` to `protected`.
++ Changed the `Quorrax\Classes\Character` class' `value` property's visibility from `private` to `protected`.
++ Changed the `Quorrax\Classes\Collection` class' `value` property's visibility from `private` to `protected`.
++ Changed the `Quorrax\Classes\Double` class' `value` property's visibility from `private` to `protected`.
++ Changed the `Quorrax\Classes\Integer` class' `value` property's visibility from `private` to `protected`.
+
+## Removed ##
+
+### Interfaces ###
+
++ Removed the `getValue()` method from the `Quorrax\Interfaces\Variable` interface.
++ Removed the `setValue()` method from the `Quorrax\Interfaces\Variable` interface.
+
 # 2.0.0 #
 
 ## Added ##
