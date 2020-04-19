@@ -51,7 +51,7 @@ trait Variable
         if (is_a($return, CharacterInterface::class, true)) {
             return new $return(gettype($this->getValue()));
         } else {
-            throw new Exception("TODO: Add some description here.");
+            throw new Exception("The given argument for the {\$return} parameter is not a valid class.");
         }
     }
 
