@@ -13,6 +13,8 @@ stages:
     script:
         - composer check
         - composer check-tests
+        - composer sniff
+        - composer sniff-tests
         - composer test
     stage: test
 
