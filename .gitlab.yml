@@ -5,6 +5,7 @@ cache:
 
 stages:
     - test
+    - publish
 
 .test:
     before_script:
@@ -41,3 +42,11 @@ PHP 7.3:
 PHP 7.4:
     extends: .test
     image: registry.gitlab.com/quorrax/php/libraries/variable-runner:7.4
+
+Coveralls:
+    before_script:
+        - ./vendor/bin/phpunit -c ./phpunit.xml --coverage-clover ./clover.xml
+    script:
+        - php php-coveralls --help
+        - php php-coveralls -o ./ -x ./clover.xml
+    stage: publish
