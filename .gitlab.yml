@@ -48,6 +48,9 @@ PHP 7.4:
 Coveralls:
     before_script:
         - ./vendor/bin/phpunit -c ./phpunit.xml --coverage-clover ./clover.xml
+    only:
+        refs:
+            - pro
     script:
         - php ~/.composer/vendor/bin/php-coveralls -v -o ./output.json -x ./clover.xml
     stage: publish
