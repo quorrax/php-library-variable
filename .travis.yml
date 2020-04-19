@@ -15,17 +15,21 @@ before_install:
 
 install:
     - composer install --no-progress
+    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+    - chmod +x ./cc-test-reporter
 
 before_script:
     - composer check
     - composer check-tests
     - composer sniff
     - composer sniff-tests
+    - ./cc-test-reporter before-build
 
 script:
     - composer test
 
 after_success:
-    - composer require --dev php-coveralls/php-coveralls
+    - composer require --dev --no-progress php-coveralls/php-coveralls
     - ./vendor/bin/phpunit -c ./phpunit.xml --coverage-clover ./clover.xml
     - php ./vendor/bin/php-coveralls -o ./output.json -x ./clover.xml
+    - ./cc-test-reporter after-build -t clover --exit-code $TRAVIS_TEST_RESULT ./clover.xml
