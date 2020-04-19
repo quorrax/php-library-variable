@@ -26,6 +26,6 @@ script:
     - composer test
 
 after_success:
-    - composer require --dev php-coveralls/php-coveralls
+    - composer require --dev --no-progress php-coveralls/php-coveralls
     - ./vendor/bin/phpunit -c ./phpunit.xml --coverage-clover ./clover.xml
     - php ./vendor/bin/php-coveralls -o ./output.json -x ./clover.xml
