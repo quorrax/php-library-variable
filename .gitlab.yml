@@ -48,6 +48,5 @@ Coveralls:
     before_script:
         - ./vendor/bin/phpunit -c ./phpunit.xml --coverage-clover ./clover.xml
     script:
-        - php ~/.composer/vendor/bin/php-coveralls --help
-        - php ~/.composer/vendor/bin/php-coveralls -o ./ -x ./clover.xml
+        - php ~/.composer/vendor/bin/php-coveralls -o ./output.json -x ./clover.xml
     stage: publish
