@@ -10,8 +10,15 @@ php:
     - 7.3
     - 7.4
 
+before_install:
+    - composer self-update
+
 install:
     - composer install --no-progress
+
+before_script:
+    - composer check
+    - composer check-tests
 
 script:
     - composer test
