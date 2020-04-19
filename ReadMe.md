@@ -2,7 +2,7 @@
 
 ## Coveralls ##
 
-[![Coverage Status](https://coveralls.io/repos/github/quorrax/php-library-variable/badge.svg)](https://coveralls.io/github/quorrax/php-library-variable)
+[![Coverage Status](https://coveralls.io/repos/github/quorrax/php-library-variable/badge.svg?branch=pro)](https://coveralls.io/github/quorrax/php-library-variable?branch=pro)
 
 ## Code Climate ##
 
