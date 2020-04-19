@@ -35,7 +35,7 @@ interface Collection extends Variable
     /**
      * @param array $value
      *
-     * @return \Quorrax\Interfaces\Variables\Boolean
+     * @return \Quorrax\Interfaces\Variables\Collection
      */
     public function setValue($value);
 
