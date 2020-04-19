@@ -3,6 +3,8 @@ cache:
     paths:
         - vendor/
 
+image: registry.gitlab.com/quorrax/php/libraries/variable-runner:7.4
+
 stages:
     - test
     - publish
@@ -44,7 +46,6 @@ PHP 7.4:
     image: registry.gitlab.com/quorrax/php/libraries/variable-runner:7.4
 
 Coveralls:
-    image: registry.gitlab.com/quorrax/php/libraries/variable-runner:7.4
     before_script:
         - ./vendor/bin/phpunit -c ./phpunit.xml --coverage-clover ./clover.xml
     script:
