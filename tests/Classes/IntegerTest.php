@@ -252,10 +252,6 @@ class IntegerTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider provideTestMethodGetTypeCustomReturnCustomException
      *
-     * @expectedException \Exception
-     * @expectedExceptionCode 0
-     * @expectedExceptionMessage TODO: Add some description here.
-     *
      * @param int $givenValue
      * @param string $givenReturn
      *
@@ -265,6 +261,9 @@ class IntegerTest extends PHPUnit_Framework_TestCase
     public function testMethodGetTypeCustomReturnCustomException($givenValue, $givenReturn)
     {
         $integer = new Integer($givenValue);
+        $this->expectException(Exception::class);
+        $this->expectExceptionCode(0);
+        $this->expectExceptionMessage("The given argument for the {\$return} parameter must implement the Quorrax\\Interfaces\\Variables\\Character interface.");
         $integer->getType($givenReturn);
     }
 
@@ -313,10 +312,6 @@ class IntegerTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider provideTestMethodGetTypeDefaultReturnCustomException
      *
-     * @expectedException \Exception
-     * @expectedExceptionCode 0
-     * @expectedExceptionMessage TODO: Add some description here.
-     *
      * @param string $givenReturn
      *
      * @return void
@@ -325,6 +320,9 @@ class IntegerTest extends PHPUnit_Framework_TestCase
     public function testMethodGetTypeDefaultReturnCustomException($givenReturn)
     {
         $integer = new Integer();
+        $this->expectException(Exception::class);
+        $this->expectExceptionCode(0);
+        $this->expectExceptionMessage("The given argument for the {\$return} parameter must implement the Quorrax\\Interfaces\\Variables\\Character interface.");
         $integer->getType($givenReturn);
     }
 

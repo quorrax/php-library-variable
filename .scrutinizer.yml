@@ -1,0 +1,43 @@
+build:
+    cache:
+        disabled: false
+        directories:
+            - vendor/
+    dependencies:
+        before:
+            - composer self-update
+        override:
+            - composer install --no-progress
+    nodes:
+        PHP 5.6:
+            environment:
+                php: 5.6
+        PHP 7.0:
+            environment:
+                php: 7.0
+        PHP 7.1:
+            environment:
+                php: 7.1
+        PHP 7.2:
+            environment:
+                php: 7.2
+        PHP 7.3:
+            environment:
+                php: 7.3
+        PHP 7.4:
+            environment:
+                php: 7.4
+    tests:
+        before:
+            - php-scrutinizer-run
+        override:
+            - composer check
+            - composer check-tests
+            - composer sniff
+            - composer sniff-tests
+            - composer test
+        after:
+            -   command: ./vendor/bin/phpunit -c ./phpunit.xml --coverage-clover ./clover.xml
+                coverage:
+                    file: ./clover.xml
+                    format: clover
