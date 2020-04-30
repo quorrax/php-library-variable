@@ -252,10 +252,6 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider provideTestMethodGetTypeCustomReturnCustomException
      *
-     * @expectedException \Exception
-     * @expectedExceptionCode 0
-     * @expectedExceptionMessage TODO: Add some description here.
-     *
      * @param bool $givenValue
      * @param string $givenReturn
      *
@@ -265,6 +261,9 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     public function testMethodGetTypeCustomReturnCustomException($givenValue, $givenReturn)
     {
         $boolean = new Boolean($givenValue);
+        $this->expectException(Exception::class);
+        $this->expectExceptionCode(0);
+        $this->expectExceptionMessage("The given argument for the {\$return} parameter must implement the Quorrax\\Interfaces\\Variables\\Character interface.");
         $boolean->getType($givenReturn);
     }
 
@@ -313,10 +312,6 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider provideTestMethodGetTypeDefaultReturnCustomException
      *
-     * @expectedException \Exception
-     * @expectedExceptionCode 0
-     * @expectedExceptionMessage TODO: Add some description here.
-     *
      * @param string $givenReturn
      *
      * @return void
@@ -325,6 +320,9 @@ class BooleanTest extends PHPUnit_Framework_TestCase
     public function testMethodGetTypeDefaultReturnCustomException($givenReturn)
     {
         $boolean = new Boolean();
+        $this->expectException(Exception::class);
+        $this->expectExceptionCode(0);
+        $this->expectExceptionMessage("The given argument for the {\$return} parameter must implement the Quorrax\\Interfaces\\Variables\\Character interface.");
         $boolean->getType($givenReturn);
     }
 
