@@ -1,13 +1,13 @@
 # Continuous Integration #
 
-## Coveralls ##
-
-[![Coverage Status](https://coveralls.io/repos/github/quorrax/php-library-variable/badge.svg?branch=pro)](https://coveralls.io/github/quorrax/php-library-variable?branch=pro)
-
 ## Code Climate ##
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/d7ecc5dad16f84320509/maintainability)](https://codeclimate.com/github/quorrax/php-library-variable/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d7ecc5dad16f84320509/test_coverage)](https://codeclimate.com/github/quorrax/php-library-variable/test_coverage)
+
+## Coveralls ##
+
+[![Coverage Status](https://coveralls.io/repos/github/quorrax/php-library-variable/badge.svg?branch=pro)](https://coveralls.io/github/quorrax/php-library-variable?branch=pro)
 
 ## Scrutinizer CI ##
 

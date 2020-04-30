@@ -257,8 +257,25 @@
             "license": [
                 "MIT"
             ],
+            "authors": [
+                {
+                    "name": "Jaap van Otterdijk",
+                    "email": "opensource@ijaap.nl"
+                }
+            ],
             "description": "Common reflection classes used by phpdocumentor to reflect the code structure",
             "homepage": "http://www.phpdoc.org",
+            "keywords": [
+                "FQSEN",
+                "phpDocumentor",
+                "phpdoc",
+                "reflection",
+                "static analysis"
+            ],
+            "support": {
+                "issues": "https://github.com/phpDocumentor/ReflectionCommon/issues",
+                "source": "https://github.com/phpDocumentor/ReflectionCommon/tree/master"
+            },
             "time": "2017-09-11T18:02:19+00:00"
         },
         {
@@ -904,8 +921,24 @@
             "license": [
                 "BSD-3-Clause"
             ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sb@sebastian-bergmann.de",
+                    "role": "lead"
+                }
+            ],
             "description": "Mock Object library for PHPUnit",
             "homepage": "https://github.com/sebastianbergmann/phpunit-mock-objects/",
+            "keywords": [
+                "mock",
+                "xunit"
+            ],
+            "support": {
+                "irc": "irc://irc.freenode.net/phpunit",
+                "issues": "https://github.com/sebastianbergmann/phpunit-mock-objects/issues",
+                "source": "https://github.com/sebastianbergmann/phpunit-mock-objects/tree/3.4"
+            },
             "abandoned": true,
             "time": "2017-06-30T09:13:00+00:00"
         },
@@ -941,8 +974,25 @@
             "license": [
                 "MIT"
             ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
             "description": "Common Container Interface (PHP FIG PSR-11)",
             "homepage": "https://github.com/php-fig/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/container/issues",
+                "source": "https://github.com/php-fig/container/tree/master"
+            },
             "time": "2017-02-14T16:28:37+00:00"
         },
         {
@@ -1606,16 +1656,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v3.4.39",
+            "version": "v3.4.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "fc5be36e0659ab6e58cc069e8845f0819e6d086e"
+                "reference": "3634991bea549e73c45a964c38f30ceeae6ed877"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/fc5be36e0659ab6e58cc069e8845f0819e6d086e",
-                "reference": "fc5be36e0659ab6e58cc069e8845f0819e6d086e",
+                "url": "https://api.github.com/repos/symfony/config/zipball/3634991bea549e73c45a964c38f30ceeae6ed877",
+                "reference": "3634991bea549e73c45a964c38f30ceeae6ed877",
                 "shasum": ""
             },
             "require": {
@@ -1667,22 +1717,36 @@
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/config/tree/v3.4.39"
+                "source": "https://github.com/symfony/config/tree/v3.4.40"
             },
-            "time": "2020-03-16T08:31:04+00:00"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-04-12T14:33:46+00:00"
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v3.4.39",
+            "version": "v3.4.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "f516f2bd2f43c82124392fa0a846d8c3261b324b"
+                "reference": "d10ff5503b0b27711087eef4ac7835a752fe42fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/f516f2bd2f43c82124392fa0a846d8c3261b324b",
-                "reference": "f516f2bd2f43c82124392fa0a846d8c3261b324b",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/d10ff5503b0b27711087eef4ac7835a752fe42fd",
+                "reference": "d10ff5503b0b27711087eef4ac7835a752fe42fd",
                 "shasum": ""
             },
             "require": {
@@ -1741,22 +1805,36 @@
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/dependency-injection/tree/3.4"
+                "source": "https://github.com/symfony/dependency-injection/tree/v3.4.40"
             },
-            "time": "2020-03-16T08:31:04+00:00"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-04-13T09:33:40+00:00"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v3.4.39",
+            "version": "v3.4.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "ec47520778d524b1736e768e0678cd1f01c03019"
+                "reference": "78a93e5606a19d0fb490afc3c4a9b7ecd86e1515"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/ec47520778d524b1736e768e0678cd1f01c03019",
-                "reference": "ec47520778d524b1736e768e0678cd1f01c03019",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/78a93e5606a19d0fb490afc3c4a9b7ecd86e1515",
+                "reference": "78a93e5606a19d0fb490afc3c4a9b7ecd86e1515",
                 "shasum": ""
             },
             "require": {
@@ -1794,9 +1872,23 @@
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/3.4"
+                "source": "https://github.com/symfony/filesystem/tree/v3.4.40"
             },
-            "time": "2020-03-16T08:31:04+00:00"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-04-12T16:54:01+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -1875,16 +1967,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.39",
+            "version": "v3.4.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "e701b47e11749970f63803879c4febb520f07b6c"
+                "reference": "8fef49ac1357f4e05c997a1f139467ccb186bffa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/e701b47e11749970f63803879c4febb520f07b6c",
-                "reference": "e701b47e11749970f63803879c4febb520f07b6c",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/8fef49ac1357f4e05c997a1f139467ccb186bffa",
+                "reference": "8fef49ac1357f4e05c997a1f139467ccb186bffa",
                 "shasum": ""
             },
             "require": {
@@ -1931,9 +2023,23 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/3.4"
+                "source": "https://github.com/symfony/yaml/tree/v3.4.40"
             },
-            "time": "2020-03-25T12:02:26+00:00"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-04-24T10:16:04+00:00"
         },
         {
             "name": "webmozart/assert",

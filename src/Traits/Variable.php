@@ -51,7 +51,11 @@ trait Variable
         if (is_a($return, CharacterInterface::class, true)) {
             return new $return(gettype($this->getValue()));
         } else {
-            throw new Exception("TODO: Add some description here.");
+            $message = sprintf(
+                "The given argument for the {\$return} parameter must implement the %s interface.",
+                CharacterInterface::class
+            );
+            throw new Exception($message);
         }
     }
 
